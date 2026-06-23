@@ -166,13 +166,47 @@
     .hero .logo{height:80px}
     .pcard h4{min-height:0}
   }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+/* WS2 BROCHURE PAGES */
+.ws2-wrap{margin-top:32px;overflow:hidden;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.10)}
+.ws2-page{background:#FAF6EE}
+.ws2-bar{background:#2d5a2e;height:6px}
+.ws2-header{padding:36px 56px 24px;border-bottom:1px solid #F2EAD8;display:flex;justify-content:space-between;align-items:flex-end}
+.ws2-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#2d5a2e;font-weight:500;margin-bottom:6px}
+.ws2-title{font-family:'Playfair Display',serif;font-size:34px;font-weight:400;color:#1C3620;line-height:1.2}
+.ws2-desc{font-size:13px;color:#8a866f;max-width:360px;line-height:1.7;text-align:right}
+.ws2-body{padding:24px 56px 20px}
+.ws2-row{display:grid;gap:4px;margin-bottom:4px}
+.ws2-row-2{grid-template-columns:1fr 1fr}
+.ws2-row-1{grid-template-columns:1fr}
+.ws2-row-hero{grid-template-columns:3fr 2fr}
+.ws2-img{position:relative;overflow:hidden}
+.ws2-img img{width:100%;height:100%;object-fit:cover;display:block}
+.ws2-img-tall{height:320px}
+.ws2-img-med{height:220px}
+.ws2-img-short{height:180px}
+.ws2-img-wide{height:260px}
+.ws2-badge{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(28,54,32,.85));padding:10px 14px 9px}
+.ws2-badge span{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.9);font-weight:400}
+.ws2-section-title{font-size:9px;letter-spacing:3.5px;text-transform:uppercase;color:#2d5a2e;font-weight:600;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #e8e2d4}
+.ws2-footer-tags{padding:14px 56px 20px;display:flex;gap:12px;flex-wrap:wrap}
+.ws2-ftag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#2d5a2e;background:#eef3ef;padding:5px 14px;border-radius:2px}
+@media(max-width:900px){
+  .ws2-header{padding:24px 28px 18px;flex-direction:column;align-items:flex-start;gap:12px}
+  .ws2-desc{text-align:left;max-width:100%}
+  .ws2-body{padding:16px 28px 16px}
+  .ws2-footer-tags{padding:12px 28px 16px}
+  .ws2-row-hero{grid-template-columns:1fr}
+  .ws2-row-2{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top"><img src="assets/web/logo.webp" alt="HMD logo"> HMD<span class="brand-rest">&nbsp;Strategy&nbsp;&amp;&nbsp;Export</span></a>
+    <a class="brand" href="#top"><img src="assets/web/logo.webp" alt="HMD logo"> HMD <span class="brand-rest">Strategy&nbsp;&amp;&nbsp;Export</span></a>
     <nav class="navlinks">
       <a href="#about">About</a>
       <a href="#materials">Materials</a>
@@ -300,9 +334,54 @@
     <div class="eyebrow">Workshop Network</div>
     <h2>Weaving Groups &amp; Quality Control</h2>
     <p class="lead">Skilled artisans in village cooperatives across Đồng Tháp hand-weave and finish each piece, then it passes quality inspection before packing.</p>
-    <div class="gal2">
-      <div class="figure"><img src="assets/web/workshop1.jpg" alt="Weaving cooperative in Đồng Tháp"><div class="cap">Weaving cooperative, Đồng Tháp</div></div>
-      <div class="figure"><img src="assets/web/workshop2.jpg" alt="Hand-finishing and inspection"><div class="cap">Hand-finishing &amp; inspection — each order is inspected, assembled, and counted before export.</div></div>
+    <div class="ws2-wrap">
+<div class="page">
+<div class="ws2-bar"></div>
+<div class="ws2-page">
+  <div class="ws2-header">
+    <div>
+      <div class="ws2-label">Workshop Network</div>
+      <div class="ws2-title">Weaving Groups<br>&amp; Quality Control</div>
+    </div>
+    <div class="ws2-desc">Village cooperatives in Đồng Tháp — skilled artisans hand-weave and finish each piece before quality inspection.</div>
+  </div>
+  <div class="ws2-body">
+
+    <div class="ws2-section-title">Weaving Groups — Village Artisans</div>
+    <div class="ws2-row ws2-row-hero" style="margin-bottom:4px;">
+      <div class="ws2-img ws2-img-tall">
+        <img src="/assets/web/workshop1.jpg" alt="Weaving Group">
+        <div class="ws2-badge"><span>Weaving Cooperative — Đồng Tháp</span></div>
+      </div>
+      <div class="ws2-img ws2-img-tall">
+        <img src="/assets/web/workshop2.jpg" alt="Hand Finishing">
+        <div class="ws2-badge"><span>Hand-Finishing Detail</span></div>
+      </div>
+    </div>
+
+    <div style="height:12px;"></div>
+    <div class="ws2-section-title">Quality Control — Inspection &amp; Assembly</div>
+    <div class="ws2-row ws2-row-hero" style="margin-bottom:4px;">
+      <div class="ws2-img ws2-img-tall">
+        <img src="/assets/web/workshop3.jpg" alt="Assembly QC">
+        <div class="ws2-badge"><span>Assembly &amp; Fitting</span></div>
+      </div>
+      <div class="ws2-img ws2-img-tall">
+        <img src="/assets/web/workshop4.jpg" alt="Quality Inspection">
+        <div class="ws2-badge"><span>Quality Inspection</span></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="ws2-footer-tags">
+    <div class="ws2-ftag">Hand-woven</div>
+    <div class="ws2-ftag">Mekong Delta</div>
+    <div class="ws2-ftag">Village Cooperatives</div>
+    <div class="ws2-ftag">5-Step QC</div>
+  </div>
+</div>
+</div>
+
     </div>
   </div>
 </section>
@@ -313,16 +392,67 @@
     <div class="eyebrow">Drying &amp; Export</div>
     <h2>Drying Facilities &amp; Container Loading</h2>
     <p class="lead">Sun-dried or dried in climate-controlled rooms, then packed and labelled for container loading, FOB Ho Chi Minh City.</p>
-    <div class="subhead">Drying — outdoor &amp; climate-controlled rooms</div>
-    <div class="gal-export">
-      <div class="figure"><img src="assets/web/export1.jpg" alt="Sun-drying"><div class="cap">Sun-drying</div></div>
-      <div class="figure"><img src="assets/web/export2.jpg" alt="Climate-controlled drying room"><div class="cap">Climate-controlled room</div></div>
-      <div class="figure"><img src="assets/web/export3.jpg" alt="Drying mats and baskets"><div class="cap">Drying — mats &amp; baskets</div></div>
+    <div class="ws2-wrap">
+<div class="page">
+<div class="ws2-bar"></div>
+<div class="ws2-page">
+  <div class="ws2-header">
+    <div>
+      <div class="ws2-label">Drying &amp; Export</div>
+      <div class="ws2-title">Drying Facilities<br>&amp; Container Loading</div>
     </div>
-    <div class="subhead">Packing &amp; export</div>
-    <div class="gal-export">
-      <div class="figure"><img src="assets/web/export4.jpg" alt="Export packing and labelling"><div class="cap">Export packing &amp; labelling</div></div>
-      <div class="figure"><img src="assets/web/export5.jpg" alt="Carton and export preparation"><div class="cap">Carton &amp; export preparation</div></div>
+    <div class="ws2-desc">From sun-drying to climate-controlled rooms — then packed, labelled and loaded into containers FOB Ho Chi Minh City.</div>
+  </div>
+  <div class="ws2-body">
+
+    <div class="ws2-section-title">Drying — Outdoor &amp; Climate-Controlled Rooms</div>
+    <div class="ws2-row" style="grid-template-columns:2fr 1fr 1fr; margin-bottom:4px;">
+      <div class="ws2-img ws2-img-med">
+        <img src="/assets/web/export1.jpg" alt="Outdoor Drying">
+        <div class="ws2-badge"><span>Sun-Drying — Community Process</span></div>
+      </div>
+      <div class="ws2-img ws2-img-med">
+        <img src="/assets/web/export2.jpg" alt="Drying Room">
+        <div class="ws2-badge"><span>Climate-Controlled Room</span></div>
+      </div>
+      <div class="ws2-img ws2-img-med">
+        <img src="/assets/web/export3.jpg" alt="Drying Mats">
+        <div class="ws2-badge"><span>Mats &amp; Baskets Drying</span></div>
+      </div>
+    </div>
+
+    <div style="height:12px;"></div>
+    <div class="ws2-section-title">Packing &amp; Export</div>
+    <div class="ws2-row ws2-row-2" style="margin-bottom:4px;">
+      <div class="ws2-img ws2-img-short">
+        <img src="/assets/web/export4.jpg" alt="Packing">
+        <div class="ws2-badge"><span>Export Packing &amp; Labelling</span></div>
+      </div>
+      <div class="ws2-img ws2-img-short">
+        <img src="/assets/web/export5.jpg" alt="Packed Goods">
+        <div class="ws2-badge"><span>Carton &amp; Export Preparation</span></div>
+      </div>
+    </div>
+
+    <div style="height:12px;"></div>
+    <div class="ws2-section-title">Container Loading — FOB Ho Chi Minh City</div>
+    <div class="ws2-row ws2-row-1" style="margin-bottom:4px;">
+      <div class="ws2-img ws2-img-wide">
+        <img src="/assets/web/export6.jpg" alt="Container Loading">
+        <div class="ws2-badge"><span>Container Loading — FOB Ho Chi Minh City</span></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="ws2-footer-tags">
+    <div class="ws2-ftag">FOB HCMC</div>
+    <div class="ws2-ftag">HS 46021990</div>
+    <div class="ws2-ftag">Export Ready</div>
+    <div class="ws2-ftag">Sun &amp; Room Drying</div>
+  </div>
+</div>
+</div>
+
     </div>
   </div>
 </section>
@@ -381,15 +511,4 @@ const products=[
  {c:"HMD-029",n:"Tall Laundry Basket",m:"Water Hyacinth",s:"Set of 2",d:"15.6 × 11.6 × 20.7 in · 14 × 10 × 18.7 in"},
  {c:"HMD-031",n:"Storage Basket with Liner",m:"Seagrass",s:"Set of 3",d:"13.6 × 10.4 × 7.7 in → 10.8 × 7.7 × 5.3 in"},
  {c:"HMD-033",n:"Tall Handled Basket",m:"Water Hyacinth",s:"Set of 3",d:"17.3 × 12.6 × 14.8 in → 13.4 × 8.3 × 11.4 in"},
- {c:"HMD-035",n:"Round Belly Basket",m:"Water Hyacinth",s:"Set of 2",d:"D16.3 × 14.2 in · D14 × 11.4 in"},
- {c:"HMD-036",n:"Rectangular Hamper with Liner",m:"Water Hyacinth",s:"Set of 2",d:"21.3 × 13.6 × 13.4 in · 18.5 × 11.8 × 12.4 in"},
- {c:"HMD-037",n:"Oval Basket with Handles",m:"Water Hyacinth",s:"Set of 3",d:"16.5 × 11 × 8.7 in → 13.4 × 7.9 × 6.3 in"},
- {c:"HMD-038",n:"Large Basket with Handles",m:"Water Hyacinth",s:"Set of 3",d:"20.5 × 16.1 × 8.3 in → 16.5 × 12.2 × 6.3 in"},
- {c:"HMD-044",n:"Oval Basket, Natural",m:"Water Hyacinth",s:"Set of 2",d:"15.7 × 8.7 × 11.6 in · 14.2 × 6.7 × 10.6 in"},
- {c:"HMD-049",n:"Candy Tray, 4 Compartments",m:"Water Hyacinth",s:"Single piece",d:"18.1 × 11.8 × 7.9 in"},
- {c:"HMD-056",n:"Square Nesting Basket",m:"Water Hyacinth",s:"Set of 5",d:"18.5 × 18.5 × 15.7 in → 12.2 × 12.2 × 9.4 in"}
-];
-const grid=document.getElementById('prodGrid');
-grid.innerHTML=products.map(p=>{
-  const code=p.c.replace('HMD-','');
-  const dot=p.m==="Seagrass
+ {c:"HMD-035",n:"Roun
