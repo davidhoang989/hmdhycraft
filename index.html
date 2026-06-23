@@ -33,13 +33,13 @@
 
   /* NAV */
   header{position:sticky;top:0;z-index:50;background:rgba(26,51,40,.96);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.08)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:10px;color:#f3efe2;font-family:var(--serif);font-weight:700;letter-spacing:.04em}
-  .brand img{height:38px;width:auto}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:nowrap;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;min-width:0;flex-shrink:1;white-space:nowrap;color:#f3efe2;font-family:var(--serif);font-weight:700;letter-spacing:.04em}
+  .brand img{height:38px;width:auto;flex-shrink:0}
   .navlinks{display:flex;gap:26px}
   .navlinks a{color:#d7d2c2;font-size:14px;letter-spacing:.04em}
   .navlinks a:hover{color:var(--gold-light)}
-  .nav .cta-mini{background:var(--gold);color:#1a3328;padding:9px 16px;border-radius:6px;font-weight:600;font-size:14px}
+  .nav .cta-mini{background:var(--gold);color:#1a3328;padding:9px 16px;border-radius:6px;font-weight:600;font-size:14px;white-space:nowrap;flex-shrink:0}
   .menu-btn{display:none;background:none;border:0;color:#f3efe2;font-size:24px;cursor:pointer}
 
   /* HERO */
@@ -145,7 +145,7 @@
   @media(max-width:900px){
     section{padding:60px 0}
     .navlinks{display:none}
-    .menu-btn{display:block}
+    .menu-btn{display:none}
     .hero-grid{grid-template-columns:1fr;max-width:360px}
     .hero-grid img{height:230px}
     .pillars,.mat-grid,.cat-grid,.gal2{grid-template-columns:1fr}
@@ -153,6 +153,12 @@
     .steps{grid-template-columns:1fr 1fr}
     .gal-export{grid-template-columns:1fr 1fr}
     .prod-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:600px){
+    .brand-rest{display:none}
+    .brand{font-size:16px;gap:8px}
+    .brand img{height:34px}
+    .nav .cta-mini{padding:9px 15px;font-size:13.5px}
   }
   @media(max-width:520px){
     .steps,.gal-export,.prod-grid{grid-template-columns:1fr}
@@ -166,7 +172,7 @@
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top"><img src="assets/web/logo.webp" alt="HMD logo"> HMD&nbsp;Strategy&nbsp;&amp;&nbsp;Export</a>
+    <a class="brand" href="#top"><img src="assets/web/logo.webp" alt="HMD logo"> HMD<span class="brand-rest">&nbsp;Strategy&nbsp;&amp;&nbsp;Export</span></a>
     <nav class="navlinks">
       <a href="#about">About</a>
       <a href="#materials">Materials</a>
@@ -386,20 +392,4 @@ const products=[
 const grid=document.getElementById('prodGrid');
 grid.innerHTML=products.map(p=>{
   const code=p.c.replace('HMD-','');
-  const dot=p.m==="Seagrass"?"gold":"green";
-  return `<article class="pcard">
-    <div class="pimg"><img loading="lazy" src="assets/web/p${code}.jpg" alt="${p.c} ${p.n}"></div>
-    <div class="pbody">
-      <div class="pcode">${p.c}</div>
-      <h4>${p.n}</h4>
-      <div class="pmeta">
-        <div class="row"><span class="dot ${dot}"></span> ${p.m}</div>
-        <div class="row">${p.s}</div>
-        <div class="dim">${p.d}</div>
-      </div>
-    </div>
-  </article>`;
-}).join('');
-</script>
-</body>
-</html>
+  const dot=p.m==="Seagrass
