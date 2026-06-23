@@ -1,0 +1,10 @@
+# Reference files (không cần deploy)
+_ref/
+
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Vercel
+.vercel
