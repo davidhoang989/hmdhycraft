@@ -234,7 +234,7 @@ posthog.init('phc_BP3BBVTPwtw3sT5i4ZVv3E72PCNmZLEcHMkpWuL7u7qV',{api_host:'https
 .ws2-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#2d5a2e;font-weight:500;margin-bottom:6px}
 .ws2-title{font-family:'Playfair Display',serif;font-size:34px;font-weight:400;color:#1C3620;line-height:1.2}
 .ws2-desc{font-size:13px;color:#8a866f;max-width:360px;line-height:1.7;text-align:right}
-.ws2-body{padding:24px 56px 20px}
+.ws2-body{padding:36px 56px 28px}
 .ws2-row{display:grid;gap:4px;margin-bottom:4px}
 .ws2-row-2{grid-template-columns:1fr 1fr}
 .ws2-row-1{grid-template-columns:1fr}
@@ -253,7 +253,7 @@ posthog.init('phc_BP3BBVTPwtw3sT5i4ZVv3E72PCNmZLEcHMkpWuL7u7qV',{api_host:'https
 @media(max-width:900px){
   .ws2-header{padding:24px 28px 18px;flex-direction:column;align-items:flex-start;gap:12px}
   .ws2-desc{text-align:left;max-width:100%}
-  .ws2-body{padding:16px 28px 16px}
+  .ws2-body{padding:26px 20px 22px}
   .ws2-footer-tags{padding:12px 28px 16px}
   .ws2-row-hero{grid-template-columns:1fr}
   .ws2-row-2{grid-template-columns:1fr}
@@ -262,11 +262,11 @@ posthog.init('phc_BP3BBVTPwtw3sT5i4ZVv3E72PCNmZLEcHMkpWuL7u7qV',{api_host:'https
 /* FLOATING MENU */
 .floatmenu{position:fixed;top:18px;left:18px;z-index:100}
 .fm-btn{width:48px;height:48px;border-radius:50%;border:0;background:rgba(26,51,40,.94);color:#f3efe2;font-size:22px;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center;transition:transform .15s;font-family:var(--sans)}
-.fm-btn:hover{transform:scale(1.05)}
+@media (hover:hover){.fm-btn:hover{transform:scale(1.05)}
+.fm-panel a:hover{background:rgba(255,255,255,.08);color:var(--gold-light)}}
 .fm-btn:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
 .fm-panel{position:absolute;top:58px;left:0;background:rgba(26,51,40,.96);backdrop-filter:blur(6px);border-radius:10px;padding:8px 0;min-width:170px;box-shadow:0 12px 30px rgba(0,0,0,.32);opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .18s,transform .18s}
 .fm-panel a{display:block;padding:11px 22px;color:#f3efe2;font-size:14px;letter-spacing:.04em;font-family:var(--sans)}
-.fm-panel a:hover{background:rgba(255,255,255,.08);color:var(--gold-light)}
 .floatmenu.open .fm-panel{opacity:1;transform:translateY(0);pointer-events:auto}
 
 /* ===== v2.0 PREMIUM TOUCHES ===== */
@@ -291,9 +291,11 @@ posthog.init('phc_BP3BBVTPwtw3sT5i4ZVv3E72PCNmZLEcHMkpWuL7u7qV',{api_host:'https
 .hero .wrap{position:relative;z-index:1}
 @media (hover:none){.hero::before{display:none}}
 
-/* F — Hover lift on cards */
+/* F — Hover lift on cards (real pointer only, so mobile taps don't stick) */
 .mat,.cat,.pillar,.card,.prod-card,.step{transition:transform .35s cubic-bezier(.2,.6,.2,1),box-shadow .35s}
-.mat:hover,.cat:hover,.card:hover,.prod-card:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(0,0,0,.10)}
+@media (hover:hover) and (pointer:fine){
+  .mat:hover,.cat:hover,.card:hover,.prod-card:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(0,0,0,.10)}
+}
 
 /* G — Non-hero image fade-in on load */
 .js section:not(.hero) img.js-lazy{opacity:0;transition:opacity .5s ease-out}
@@ -302,10 +304,15 @@ posthog.init('phc_BP3BBVTPwtw3sT5i4ZVv3E72PCNmZLEcHMkpWuL7u7qV',{api_host:'https
 /* D — Trust marquee strip */
 .marquee{background:var(--green-deep);color:#cfd6c9;padding:16px 0;overflow:hidden;font-size:12px;letter-spacing:.28em;text-transform:uppercase;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
 .marquee-track{display:flex;align-items:center;width:max-content;animation:marquee 44s linear infinite}
-.marquee span{white-space:nowrap;color:#cfd6c9;padding:0 42px;position:relative}
+.marquee span{white-space:nowrap;color:#cfd6c9;padding:0 32px;position:relative}
 .marquee span::after{content:"";position:absolute;right:-3px;top:50%;width:4px;height:4px;background:var(--gold);border-radius:50%;transform:translateY(-50%)}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion: reduce){.marquee-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto;gap:16px 32px;padding:0 24px}}
+@media (prefers-reduced-motion: reduce), (max-width: 640px){
+  .marquee{padding:20px 20px}
+  .marquee-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto;gap:10px 22px;text-align:center}
+  .marquee span{white-space:normal;padding:0;position:static}
+  .marquee span::after{display:none}
+}
 
 /* C — FAQ accordion */
 .faq{background:var(--cream)}
@@ -323,7 +330,7 @@ posthog.init('phc_BP3BBVTPwtw3sT5i4ZVv3E72PCNmZLEcHMkpWuL7u7qV',{api_host:'https
 /* Back to top */
 .totop{position:fixed;bottom:22px;right:22px;width:46px;height:46px;border-radius:50%;border:0;background:rgba(26,51,40,.94);color:#f3efe2;font-size:20px;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.28);opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .3s,transform .3s,background .2s;z-index:99;font-family:var(--sans);display:flex;align-items:center;justify-content:center}
 .totop.show{opacity:1;transform:translateY(0);pointer-events:auto}
-.totop:hover{background:var(--gold);color:#1a3328}
+@media (hover:hover){.totop:hover{background:var(--gold);color:#1a3328}}
 .totop:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
 </style>
 </head>
@@ -482,13 +489,6 @@ document.querySelectorAll('#floatmenu .fm-panel a[href^="#"]').forEach(function(
 <div class="page">
 <div class="ws2-bar"></div>
 <div class="ws2-page">
-  <div class="ws2-header">
-    <div>
-      <div class="ws2-label">Workshop Network</div>
-      <div class="ws2-title">Weaving Groups<br>&amp; Quality Control</div>
-    </div>
-    <div class="ws2-desc">Village cooperatives in Đồng Tháp — skilled artisans hand-weave and finish each piece before quality inspection.</div>
-  </div>
   <div class="ws2-body">
 
     <div class="ws2-section-title">Weaving Groups — Village Artisans</div>
@@ -540,13 +540,6 @@ document.querySelectorAll('#floatmenu .fm-panel a[href^="#"]').forEach(function(
 <div class="page">
 <div class="ws2-bar"></div>
 <div class="ws2-page">
-  <div class="ws2-header">
-    <div>
-      <div class="ws2-label">Drying &amp; Export</div>
-      <div class="ws2-title">Drying Facilities<br>&amp; Container Loading</div>
-    </div>
-    <div class="ws2-desc">From sun-drying to climate-controlled rooms — then packed, labelled and loaded into containers FOB Ho Chi Minh City.</div>
-  </div>
   <div class="ws2-body">
 
     <div class="ws2-section-title">Drying — Outdoor &amp; Climate-Controlled Rooms</div>
