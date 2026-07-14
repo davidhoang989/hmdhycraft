@@ -268,6 +268,57 @@ posthog.init('phc_BP3BBVTPwtw3sT5i4ZVv3E72PCNmZLEcHMkpWuL7u7qV',{api_host:'https
 .fm-panel a{display:block;padding:11px 22px;color:#f3efe2;font-size:14px;letter-spacing:.04em;font-family:var(--sans)}
 .fm-panel a:hover{background:rgba(255,255,255,.08);color:var(--gold-light)}
 .floatmenu.open .fm-panel{opacity:1;transform:translateY(0);pointer-events:auto}
+
+/* ===== v2.0 PREMIUM TOUCHES ===== */
+
+/* A — Scroll-triggered section fade+slide (js-gated) */
+.js section:not(.hero){opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1)}
+.js section.in{opacity:1;transform:none}
+
+/* E — Headline clip-path reveal on section entry */
+.js section:not(.hero) h2{clip-path:inset(0 100% 0 0);transition:clip-path 1.05s cubic-bezier(.6,.2,.2,1) .18s}
+.js section.in h2{clip-path:inset(0 0 0 0)}
+
+@media (prefers-reduced-motion: reduce){
+  .js section:not(.hero){opacity:1;transform:none;transition:none}
+  .js section h2{clip-path:none;transition:none}
+}
+
+/* B — Cursor spotlight on hero (desktop only) */
+.hero{position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(560px circle at var(--mx,50%) var(--my,50%),rgba(203,168,90,.11),transparent 45%);pointer-events:none;transition:opacity .35s;opacity:0;z-index:0}
+.hero:hover::before{opacity:1}
+.hero .wrap{position:relative;z-index:1}
+@media (hover:none){.hero::before{display:none}}
+
+/* F — Hover lift on cards */
+.mat,.cat,.pillar,.card,.prod-card,.step{transition:transform .35s cubic-bezier(.2,.6,.2,1),box-shadow .35s}
+.mat:hover,.cat:hover,.card:hover,.prod-card:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(0,0,0,.10)}
+
+/* G — Non-hero image fade-in on load */
+.js section:not(.hero) img.js-lazy{opacity:0;transition:opacity .5s ease-out}
+.js section:not(.hero) img.js-lazy.loaded{opacity:1}
+
+/* D — Trust marquee strip */
+.marquee{background:var(--green-deep);color:#cfd6c9;padding:16px 0;overflow:hidden;font-size:12px;letter-spacing:.28em;text-transform:uppercase;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.marquee-track{display:flex;align-items:center;width:max-content;animation:marquee 44s linear infinite}
+.marquee span{white-space:nowrap;color:#cfd6c9;padding:0 42px;position:relative}
+.marquee span::after{content:"";position:absolute;right:-3px;top:50%;width:4px;height:4px;background:var(--gold);border-radius:50%;transform:translateY(-50%)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.marquee-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto;gap:16px 32px;padding:0 24px}}
+
+/* C — FAQ accordion */
+.faq{background:var(--cream)}
+.faq h2{text-align:center;margin-bottom:12px}
+.faq .lead{text-align:center;margin:0 auto 44px}
+.faq-list{max-width:820px;margin:0 auto}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden;transition:box-shadow .3s}
+.faq details[open]{box-shadow:0 12px 30px rgba(0,0,0,.06)}
+.faq summary{list-style:none;padding:22px 26px;cursor:pointer;font-family:var(--serif);font-size:18px;color:var(--green);font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--sans);font-size:26px;color:var(--gold);font-weight:400;flex-shrink:0;transition:transform .3s}
+.faq details[open] summary::after{content:"−"}
+.faq .ans{padding:0 26px 24px 26px;color:var(--muted);font-size:15px;line-height:1.7}
 </style>
 </head>
 <body>
@@ -301,6 +352,26 @@ document.querySelectorAll('#floatmenu .fm-panel a[href^="#"]').forEach(function(
     <div class="hero-foot">Handwoven Water Hyacinth &amp; Seagrass&nbsp;&nbsp;·&nbsp;&nbsp;Established 2019&nbsp;&nbsp;·&nbsp;&nbsp;hmdhycraft.com</div>
   </div>
 </section>
+
+<!-- v2.0 D — Trust marquee -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>OEM &amp; Private Label</span>
+    <span>FOB Ho Chi Minh City</span>
+    <span>Retail-Ready Packaging</span>
+    <span>Sample-Matched QC</span>
+    <span>Container Loading Included</span>
+    <span>Established 2019</span>
+    <span>Water Hyacinth &nbsp;·&nbsp; Seagrass &nbsp;·&nbsp; Bamboo</span>
+    <span>OEM &amp; Private Label</span>
+    <span>FOB Ho Chi Minh City</span>
+    <span>Retail-Ready Packaging</span>
+    <span>Sample-Matched QC</span>
+    <span>Container Loading Included</span>
+    <span>Established 2019</span>
+    <span>Water Hyacinth &nbsp;·&nbsp; Seagrass &nbsp;·&nbsp; Bamboo</span>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <section id="about">
@@ -538,6 +609,49 @@ document.querySelectorAll('#floatmenu .fm-panel a[href^="#"]').forEach(function(
   </div>
 </section>
 
+<!-- v2.0 C — FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center">Buyer FAQ</div>
+    <h2>What buyers usually ask</h2>
+    <p class="lead">The wholesale questions we answer most often. Anything else, write to us at joy@hmdhycraft.com.</p>
+    <div class="faq-list">
+      <details>
+        <summary>What is your minimum order quantity (MOQ)?</summary>
+        <div class="ans">MOQ depends on the product line and material. For standard designs in our Storage Baskets Collection, we typically start from 300 to 500 units per SKU. Mixed containers with several SKUs are welcome; for a full quote we will confirm MOQ against the exact items in your enquiry.</div>
+      </details>
+      <details>
+        <summary>What is your lead time from order confirmation?</summary>
+        <div class="ans">Standard lead time is 45 to 60 days for a full container of standard designs, counted from deposit and approved pre-production samples. Larger or customised programs are quoted per project.</div>
+      </details>
+      <details>
+        <summary>Do you handle OEM and private label?</summary>
+        <div class="ans">Yes. We work with buyers who need private label goods for retail: custom dimensions, custom weave patterns, buyer-supplied colour references, buyer-branded hangtags, care labels, and retail packaging. All artwork and packaging is produced against your approved artwork files.</div>
+      </details>
+      <details>
+        <summary>How does sampling work?</summary>
+        <div class="ans">We prepare paid samples matched to your reference photos, tech-pack, or physical sample. Sampling lead time is 10 to 15 days depending on complexity. Sample fees are typically credited back against a confirmed production order.</div>
+      </details>
+      <details>
+        <summary>What are your payment terms?</summary>
+        <div class="ans">Standard terms are 30 percent deposit against proforma invoice and 70 percent balance before B/L release, by T/T. For repeat buyers we can discuss L/C at sight or open terms on a case-by-case basis.</div>
+      </details>
+      <details>
+        <summary>How is quality controlled before shipment?</summary>
+        <div class="ans">Every unit is inspected by hand at the village and again at our drying and packing facility: pattern and dimension against approved samples, moisture kept below 15 percent to prevent mould during ocean freight, and an eco-friendly anti-mould treatment on every piece. Third-party inspection by SGS, TÜV, or buyer-nominated firms is arranged on request.</div>
+      </details>
+      <details>
+        <summary>Do you organise container loading and freight?</summary>
+        <div class="ans">Yes. We consolidate at our HCMC facility and load 20&#39; and 40&#39;HQ containers to buyer specifications: cartons per SKU, palletisation, load plans, and photo and video documentation. FOB Ho Chi Minh City is our default incoterm; CIF and DAP are quoted on request.</div>
+      </details>
+      <details>
+        <summary>What certifications and compliance do you support?</summary>
+        <div class="ans">Our baskets are handwoven natural fibre goods (HS 4602). Phytosanitary certificates and Certificate of Origin (Form B, Form E, or Form EUR.1 depending on destination) are issued through Vietnam Customs. Our anti-mould treatment is compliant with import regulations for the EU, UK, US, Canada, Australia, and Japan.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="wrap">
@@ -562,6 +676,35 @@ document.querySelectorAll('#floatmenu .fm-panel a[href^="#"]').forEach(function(
 </section>
 
 <footer class="site">© 2026 HMD Strategy &amp; Export Co., Ltd · hmdhycraft.com</footer>
+
+<!-- v2.0 A+B+E+G — reveal / spotlight / lazy fade -->
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });
+  },{threshold:0.15,rootMargin:'0px 0px -80px 0px'});
+  document.querySelectorAll('section').forEach(function(s){
+    if(s.classList.contains('hero')){s.classList.add('in');return;}
+    io.observe(s);
+  });
+  var hero=document.querySelector('.hero');
+  if(hero){hero.addEventListener('mousemove',function(e){
+    var r=hero.getBoundingClientRect();
+    hero.style.setProperty('--mx',(e.clientX-r.left)+'px');
+    hero.style.setProperty('--my',(e.clientY-r.top)+'px');
+  });}
+  document.querySelectorAll('section:not(.hero) img').forEach(function(img){
+    img.classList.add('js-lazy');
+    if(img.complete&&img.naturalWidth>0){img.classList.add('loaded');return;}
+    if(!img.loading||img.loading==='auto')img.loading='lazy';
+    img.addEventListener('load',function(){img.classList.add('loaded');});
+    img.addEventListener('error',function(){img.classList.add('loaded');});
+  });
+})();
+</script>
 
 <script>
 const products=[
