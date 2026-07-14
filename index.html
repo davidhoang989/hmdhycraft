@@ -258,24 +258,33 @@ posthog.init('phc_BP3BBVTPwtw3sT5i4ZVv3E72PCNmZLEcHMkpWuL7u7qV',{api_host:'https
   .ws2-row-hero{grid-template-columns:1fr}
   .ws2-row-2{grid-template-columns:1fr}
 }
+
+/* FLOATING MENU */
+.floatmenu{position:fixed;top:18px;left:18px;z-index:100}
+.fm-btn{width:48px;height:48px;border-radius:50%;border:0;background:rgba(26,51,40,.94);color:#f3efe2;font-size:22px;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center;transition:transform .15s;font-family:var(--sans)}
+.fm-btn:hover{transform:scale(1.05)}
+.fm-btn:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
+.fm-panel{position:absolute;top:58px;left:0;background:rgba(26,51,40,.96);backdrop-filter:blur(6px);border-radius:10px;padding:8px 0;min-width:170px;box-shadow:0 12px 30px rgba(0,0,0,.32);opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .18s,transform .18s}
+.fm-panel a{display:block;padding:11px 22px;color:#f3efe2;font-size:14px;letter-spacing:.04em;font-family:var(--sans)}
+.fm-panel a:hover{background:rgba(255,255,255,.08);color:var(--gold-light)}
+.floatmenu.open .fm-panel{opacity:1;transform:translateY(0);pointer-events:auto}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="#top"><img src="assets/web/logo.webp" alt="HMD logo"> HMD <span class="brand-rest">Strategy&nbsp;&amp;&nbsp;Export</span></a>
-    <nav class="navlinks">
-      <a href="#about">About</a>
-      <a href="#materials">Materials</a>
-      <a href="#categories">Products</a>
-      <a href="#process">Process</a>
-      <a href="#collection">Collection</a>
-    </nav>
-    <a class="cta-mini" href="https://wa.me/84935896226" target="_blank" rel="noopener">Get a quote</a>
-    <button class="menu-btn" onclick="document.getElementById('contact').scrollIntoView()">☰</button>
-  </div>
-</header>
+<!-- Floating menu (Home / Blog / Email us) -->
+<div id="floatmenu" class="floatmenu">
+  <button class="fm-btn" aria-label="Open menu" aria-expanded="false" onclick="var f=document.getElementById('floatmenu');var o=f.classList.toggle('open');this.setAttribute('aria-expanded',o);">☰</button>
+  <nav class="fm-panel" aria-label="Site navigation">
+    <a href="#top">Home</a>
+    <a href="/blog/">Blog</a>
+    <a href="mailto:joy@hmdhycraft.com?subject=Enquiry%20from%20hmdhycraft.com">Email us</a>
+  </nav>
+</div>
+<script>
+document.addEventListener('click',function(e){var f=document.getElementById('floatmenu');if(f&&!f.contains(e.target)){f.classList.remove('open');var b=f.querySelector('.fm-btn');if(b)b.setAttribute('aria-expanded','false');}});
+document.querySelectorAll('#floatmenu .fm-panel a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){var f=document.getElementById('floatmenu');f.classList.remove('open');f.querySelector('.fm-btn').setAttribute('aria-expanded','false');});});
+</script>
 
 <!-- HERO -->
 <section class="hero" id="top">
