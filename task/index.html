@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task Manager — HMD Hycraft SEO Rollout</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://www.hmdhycraft.com/task">
+<link rel="icon" type="image/png" href="/assets/web/logo.png">
+<link rel="icon" type="image/webp" href="/assets/web/logo.webp">
+<style>
+:root{
+  --green:#1f3d30;--green-deep:#1a3328;--gold:#b58a3c;--gold-light:#cba85a;
+  --cream:#f6f4ed;--card:#f1efe7;--ink:#2d2d2b;--muted:#6f6e69;--line:#e6e3d9;
+  --today:#fff8e6;--today-border:#cba85a;--done:#8a9c8f;
+  --p1:#c05621;--p2:#b58a3c;--p3:#1f3d30;--p4:#6f6e69;
+  --serif:Georgia,'Times New Roman',serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);line-height:1.5;background:#faf9f5;-webkit-font-smoothing:antialiased;padding-bottom:60px}
+h1,h2,h3,h4{font-family:var(--serif);color:var(--green);font-weight:700;line-height:1.2}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+/* Header */
+.top{background:var(--green);color:#f4f1e6;padding:32px 0 26px}
+.top .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:8px}
+.top h1{color:#f6f3e9;font-size:clamp(24px,3.4vw,32px);margin:0 0 10px}
+.top .sub{color:#c4cabd;font-size:14px;max-width:640px}
+.top .date{color:var(--gold-light);font-family:var(--serif);font-style:italic;font-size:15px;margin-top:6px}
+
+/* Progress */
+.progress-wrap{background:#fff;border-bottom:1px solid var(--line);padding:16px 0;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.progress-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.progress-bar{flex:1;min-width:200px;height:10px;background:var(--card);border-radius:6px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:6px;transition:width .4s cubic-bezier(.2,.6,.2,1)}
+.progress-label{font-size:13px;color:var(--muted);font-weight:600;white-space:nowrap}
+.progress-label b{color:var(--green);font-size:15px}
+
+/* Filter tabs */
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.filter-btn{background:transparent;border:1px solid var(--line);color:var(--muted);padding:7px 14px;border-radius:20px;font-size:13px;font-weight:600;transition:all .15s}
+.filter-btn:hover{color:var(--green);border-color:var(--green)}
+.filter-btn.active{background:var(--green);color:#f4f1e6;border-color:var(--green)}
+.filter-btn .count{background:rgba(255,255,255,.2);padding:1px 7px;border-radius:8px;margin-left:5px;font-size:11px}
+.filter-btn:not(.active) .count{background:var(--card);color:var(--muted)}
+
+/* Day cards */
+.days{padding:26px 0}
+.day{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:14px;overflow:hidden;transition:box-shadow .2s}
+.day.today{border-color:var(--today-border);border-width:2px;box-shadow:0 8px 24px rgba(181,138,60,.15)}
+.day.past{opacity:.7}
+.day.hidden{display:none}
+.day-head{padding:16px 22px;background:var(--card);display:flex;align-items:center;gap:14px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.day.today .day-head{background:var(--today)}
+.day-num{font-family:var(--serif);color:var(--gold);font-weight:700;font-size:14px;letter-spacing:.06em;white-space:nowrap}
+.day-date{font-family:var(--serif);color:var(--green);font-weight:700;font-size:17px}
+.day-dow{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.08em}
+.day-badge{background:var(--gold);color:#1a3328;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-left:auto}
+.day.today .day-badge{animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.day-count{color:var(--muted);font-size:12px;font-weight:600}
+.day-count b{color:var(--green)}
+
+/* Task */
+.task{padding:14px 22px 14px 20px;display:flex;gap:14px;align-items:flex-start;border-bottom:1px solid var(--line);transition:background .15s}
+.task:last-child{border-bottom:0}
+.task:hover{background:#fbfaf5}
+.task input[type=checkbox]{appearance:none;-webkit-appearance:none;width:22px;height:22px;border:2px solid var(--line);border-radius:5px;cursor:pointer;flex-shrink:0;background:#fff;position:relative;transition:all .15s;margin-top:1px}
+.task input[type=checkbox]:hover{border-color:var(--gold)}
+.task input[type=checkbox]:checked{background:var(--green);border-color:var(--green)}
+.task input[type=checkbox]:checked::after{content:"";position:absolute;left:6px;top:2px;width:6px;height:11px;border:solid #f6f3e9;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.task-body{flex:1;min-width:0}
+.task-title{font-size:15px;color:var(--ink);font-weight:500;line-height:1.5}
+.task-meta{display:flex;gap:10px;margin-top:5px;flex-wrap:wrap;align-items:center}
+.task-cat{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.task-cat::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-right:6px;vertical-align:middle}
+.task-cat.linkedin::before{background:#0077b5}
+.task-cat.reddit::before{background:#ff4500}
+.task-cat.quora::before{background:#b92b27}
+.task-cat.youtube::before{background:#ff0000}
+.task-cat.alibaba::before{background:#ff6a00}
+.task-cat.gsource::before{background:#004b8d}
+.task-cat.wiki::before{background:#999}
+.task-cat.audit::before{background:#1f3d30}
+.task-cat.pitch::before{background:#8b5cf6}
+.task-note{color:var(--muted);font-size:13px;line-height:1.5;margin-top:4px}
+.task-note a{color:var(--gold);font-weight:600}
+.task.done .task-title{text-decoration:line-through;color:var(--done)}
+.task.done .task-note{opacity:.5}
+
+.p-badge{padding:2px 8px;border-radius:8px;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff}
+.p-badge.p1{background:var(--p1)}
+.p-badge.p2{background:var(--p2)}
+.p-badge.p3{background:var(--p3)}
+.p-badge.p4{background:var(--p4)}
+
+.empty{text-align:center;padding:60px 20px;color:var(--muted)}
+.empty h3{color:var(--green);font-size:20px;margin-bottom:8px}
+
+.footer{text-align:center;padding:26px 20px;color:var(--muted);font-size:12px}
+.footer a{color:var(--gold);font-weight:600}
+.footer button{background:transparent;border:1px solid var(--line);color:var(--muted);padding:6px 14px;border-radius:6px;font-size:12px;margin-left:8px}
+.footer button:hover{border-color:var(--p1);color:var(--p1)}
+
+@media(max-width:600px){
+  .top{padding:22px 0 18px}
+  .progress-row{flex-direction:column;align-items:stretch;gap:12px}
+  .filters{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+  .filter-btn{flex-shrink:0}
+  .day-head{padding:14px 16px;gap:10px}
+  .day-badge{width:100%;text-align:center;margin-left:0}
+  .task{padding:12px 16px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow">HMD Hycraft · Internal</div>
+    <h1>SEO &amp; AI Visibility — 30-day rollout</h1>
+    <p class="sub">Third-party content playbook execution schedule. Check off tasks as you complete them; progress is saved locally in your browser.</p>
+    <p class="date" id="todayLabel"></p>
+  </div>
+</header>
+
+<div class="progress-wrap">
+  <div class="wrap">
+    <div class="progress-row">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="progress-label"><b id="doneCount">0</b> / <span id="totalCount">0</span> tasks</div>
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-f="today">Today <span class="count" id="c-today">0</span></button>
+        <button class="filter-btn" data-f="week">This week <span class="count" id="c-week">0</span></button>
+        <button class="filter-btn" data-f="undone">Undone <span class="count" id="c-undone">0</span></button>
+        <button class="filter-btn" data-f="all">All <span class="count" id="c-all">0</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="days wrap" id="days"></main>
+
+<div class="footer">
+  Saved locally in your browser (not shared). ·
+  <a href="/">← hmdhycraft.com</a> ·
+  <button onclick="resetAll()">Reset all checkboxes</button>
+</div>
+
+<script>
+// Task calendar: 30 days starting 2026-07-14 (Tuesday)
+// Categories: linkedin, reddit, quora, youtube, alibaba, gsource, wiki, audit, pitch
+const START = new Date('2026-07-14T00:00:00+07:00');
+
+const TASKS = [
+  // === WEEK 1 (Jul 14-20) — Priority 1: quick wins ===
+  { day: 1, priority: 1, cat: 'linkedin', title: 'Rename LinkedIn profile to "Joy Nguyễn Vietnam"',
+    note: 'Update name across profile header, URL slug if possible, and About section. This is the anchor identity for all AI/search visibility going forward.' },
+  { day: 1, priority: 1, cat: 'youtube', title: 'Create YouTube channel "HMD Hycraft"',
+    note: 'Reserve the handle now even if first video is later. Upload logo + banner. Link to hmdhycraft.com in channel description.' },
+
+  { day: 2, priority: 1, cat: 'reddit', title: 'Post Reddit answer #1 in r/procurement',
+    note: 'Find a real question about Vietnam sourcing / handicraft origins. Use template #1 or #2 from playbook Section 2. No self-link on first post.' },
+  { day: 2, priority: 1, cat: 'reddit', title: 'Post Reddit answer #2 in r/interiordesign',
+    note: 'Find question about natural-fibre baskets or décor sourcing. Use template #4 (water hyacinth vs seagrass). Value first, no self-promotion.' },
+
+  { day: 3, priority: 1, cat: 'reddit', title: 'Post Reddit answer #3 in r/homedecor',
+    note: 'Use template #6 (invasive weed ethics angle) or #4. Comment on 2-3 other threads in the sub to build presence, no self-link yet.' },
+
+  { day: 4, priority: 1, cat: 'reddit', title: 'Post Reddit answer #4 in r/wholesale or r/EcomExchange',
+    note: 'Use template #2 (MOQ) or #5 (how to check supplier). These subs have lower activity but higher intent.' },
+  { day: 4, priority: 1, cat: 'reddit', title: 'Post Reddit answer #5 in r/smallbusiness or r/Entrepreneur',
+    note: 'Use template #7 (Vietnam cheaper than China) or #10 (Alibaba trust). Reply to comments within 24h.' },
+
+  { day: 5, priority: 1, cat: 'alibaba', title: 'Alibaba profile: load first 25 SKUs (HMD-001 to HMD-025)',
+    note: 'Use existing product photos on white background from /assets/web/. Company description from playbook Section 5. No pricing visible.' },
+
+  { day: 6, priority: 1, cat: 'alibaba', title: 'Alibaba profile: load next 25 SKUs (HMD-026 to HMD-050)',
+    note: 'Same format. Ensure MOQ 300 and lead time 45-60 days consistent across all listings.' },
+
+  { day: 7, priority: 1, cat: 'gsource', title: 'Global Sources: profile description + first 20 SKUs',
+    note: 'Copy company description from playbook. Upload BRC (tax code 3604102401), BSCI certificate, sample phytosanitary certificate to trust badges.' },
+
+  // === WEEK 2 (Jul 21-27) — Priority 2 start ===
+  { day: 8, priority: 1, cat: 'alibaba', title: 'Finish Alibaba + Global Sources catalogue (remaining SKUs)',
+    note: 'Complete HMD-051 to HMD-074 on both platforms. This is one-time setup work; subsequent updates are just per-SKU.' },
+
+  { day: 9, priority: 2, cat: 'linkedin', title: 'Draft LinkedIn post #1 (week 1 — company update)',
+    note: 'Announce the SEO/blog buildout. Link to /blog/how-to-import-handwoven-baskets-from-vietnam. 800-1,200 chars, no bullets, one clear ask ("what would you like to see me write next?").' },
+
+  { day: 10, priority: 2, cat: 'linkedin', title: 'Publish LinkedIn post #1 + monitor comments',
+    note: 'Post in morning Vietnam time (2 PM in Europe, 8 AM US East). Reply to every comment within 4 hours for first 24h — LinkedIn algorithm weights this heavily.' },
+
+  { day: 11, priority: 2, cat: 'quora', title: 'Answer Quora Q1: "Where find reliable Vietnam suppliers"',
+    note: 'Use expanded template #1 from playbook Section 3. 250-400 words. Author bio names HMD; body doesn\'t self-promote.' },
+
+  { day: 12, priority: 2, cat: 'quora', title: 'Answer Quora Q2: "Best natural fibres for baskets"',
+    note: 'Use template #2 expanded. Link to /blog/water-hyacinth-vs-seagrass-vs-rattan.' },
+
+  { day: 13, priority: 2, cat: 'quora', title: 'Answer Quora Q3: "Vietnam vs China wholesale sourcing"',
+    note: 'Use template #3 expanded. Link to /blog/vietnam-vs-china-vs-indonesia-handicraft-sourcing.' },
+
+  { day: 14, priority: 2, cat: 'quora', title: 'Answer Quora Q4 + Q5 (import from VN, OEM vs PL)',
+    note: 'Two answers today. Templates #4 and #5. Link respectively to import guide and OEM comparison posts.' },
+
+  // === WEEK 3 (Jul 28 - Aug 3) — YouTube + LinkedIn cadence + pitches ===
+  { day: 15, priority: 2, cat: 'youtube', title: 'Storyboard YouTube video #1 (60-second production process)',
+    note: 'Shot list from playbook Section 4, video #1. Silhouette / hands-only footage. Music: royalty-free instrumental. Script Joy voice-over ready.' },
+
+  { day: 16, priority: 2, cat: 'youtube', title: 'Film YouTube video #1 raw footage',
+    note: 'Delta river shot, harvest silhouette, drying wide, hands weaving, anti-mould treatment, final basket in-context. Aim for 90-120s of raw to edit to 60s.' },
+
+  { day: 17, priority: 2, cat: 'youtube', title: 'Edit + upload YouTube video #1 with SEO',
+    note: 'Title: "How water hyacinth becomes a basket — Vietnam". Description 200+ words with keywords + link to blog post. Tags, custom thumbnail, end screen.' },
+
+  { day: 18, priority: 2, cat: 'linkedin', title: 'Draft LinkedIn post #2 (Đồng Tháp reflection)',
+    note: 'Personal-reflection tone. About the weaving cooperatives and what the trade means locally. Link to /blog/from-wild-riverside-to-living-rooms.' },
+
+  { day: 19, priority: 2, cat: 'linkedin', title: 'Publish LinkedIn post #2 + engage',
+    note: 'Same posting window as #1. Reply to all comments in first 24h.' },
+
+  { day: 20, priority: 3, cat: 'pitch', title: 'Pitch guest post #1 — Home Textiles Today (US)',
+    note: 'Email template from playbook Section 6. Angle: "Vietnam handwoven baskets — what changed 2020-2026". Include 2-3 alt angles. Sign as Joy Nguyễn Vietnam.' },
+
+  { day: 21, priority: 3, cat: 'pitch', title: 'Pitch guest post #2 — HFN (Home Furnishings News, US)',
+    note: 'Angle: "OEM vs private label: what a Vietnamese exporter learned from 6 years of retail programs". Reference the OEM blog post as sample of writing style.' },
+
+  // === WEEK 4 (Aug 4-10) — Wikipedia + more pitches + LinkedIn ===
+  { day: 22, priority: 3, cat: 'pitch', title: 'Pitch guest post #3 — Retail Focus (UK)',
+    note: 'Angle: "How UK home décor buyers should think about Vietnam sourcing under EVFTA". Mention EU-Vietnam FTA benefit for UK retention on tariff.' },
+
+  { day: 23, priority: 3, cat: 'wiki', title: 'Create Wikipedia account "joy_nguyen_vietnam"',
+    note: 'Add short bio. Make first 2 minor edits to unrelated articles (typo/grammar fixes). These count toward autoconfirmed status (10 edits + 4 days).' },
+
+  { day: 24, priority: 3, cat: 'wiki', title: 'Wikipedia edits #3, #4, #5 (unrelated articles)',
+    note: 'Fix typos or improve clarity on Wikipedia articles you actually know something about. Each edit logged with a factual edit summary. No HMD content yet.' },
+
+  { day: 25, priority: 3, cat: 'wiki', title: 'Wikipedia edits #6, #7, #8',
+    note: 'Continue building edit history. If any HS 4602 / Vietnam trade / weaving articles exist that could benefit from small factual improvements, do those (not adding HMD reference yet).' },
+
+  { day: 26, priority: 3, cat: 'wiki', title: 'Wikipedia edits #9 and #10 (reach autoconfirmed threshold)',
+    note: 'After this + 4 days elapsed since account creation, account will be autoconfirmed. Then you can edit semi-protected articles including main "Water hyacinth" article.' },
+
+  { day: 27, priority: 2, cat: 'linkedin', title: 'Draft LinkedIn post #3 (fibre comparison)',
+    note: 'Water hyacinth vs seagrass, with a real photo. Conversational, one clear insight per paragraph. Link to comparison blog post.' },
+
+  { day: 28, priority: 2, cat: 'linkedin', title: 'Publish LinkedIn post #3 + engage',
+    note: 'Reply to comments. Save the post URL for future reference.' },
+
+  // === WEEK 5 (Aug 11-12) — Baseline audit + follow-ups ===
+  { day: 29, priority: 3, cat: 'audit', title: 'First manual AI visibility audit (baseline)',
+    note: '10 queries × 5 platforms (ChatGPT, Perplexity, Google AI Overview, Claude, Gemini). Log in a spreadsheet: cited yes/no, cited how (own domain / third-party). This is your baseline — everything after should improve on it.' },
+
+  { day: 30, priority: 4, cat: 'pitch', title: 'Follow up on guest post pitches (nudge editors)',
+    note: 'If any of the 3 editors haven\'t replied after 7-10 days, send a polite one-line nudge referencing the original email. Silence ≠ rejection at this stage.' },
+  { day: 30, priority: 4, cat: 'linkedin', title: 'Draft LinkedIn post #4 + plan month 2',
+    note: 'Behind-the-scenes container loading angle. Then review what worked in month 1 vs playbook Priority 4 and set month-2 calendar.' },
+];
+
+// -- Rendering --
+const DOW = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const DOW_FULL = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const CAT_LABELS = {linkedin:'LinkedIn',reddit:'Reddit',quora:'Quora',youtube:'YouTube',alibaba:'Alibaba',gsource:'Global Sources',wiki:'Wikipedia',audit:'AI Audit',pitch:'Guest Post'};
+
+const STATE_KEY = 'hmd_task_state_v1';
+let state = JSON.parse(localStorage.getItem(STATE_KEY) || '{}');
+let currentFilter = 'today';
+
+function dateForDay(d) {
+  const dt = new Date(START);
+  dt.setDate(dt.getDate() + (d - 1));
+  return dt;
+}
+function dayIndexFromToday() {
+  const now = new Date();
+  const nowMid = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const startMid = new Date(START.getFullYear(), START.getMonth(), START.getDate());
+  const diff = Math.floor((nowMid - startMid) / 86400000);
+  return diff + 1;
+}
+function taskId(t, idx) { return `d${t.day}-${idx}`; }
+function isDone(id) { return !!state[id]; }
+function setDone(id, val) {
+  if (val) state[id] = true; else delete state[id];
+  localStorage.setItem(STATE_KEY, JSON.stringify(state));
+}
+
+function renderTodayLabel() {
+  const now = new Date();
+  const dayN = dayIndexFromToday();
+  const dowName = DOW_FULL[now.getDay()];
+  const dateStr = `${dowName}, ${now.getDate()} ${MONTHS[now.getMonth()]} ${now.getFullYear()}`;
+  let dayPhrase;
+  if (dayN < 1) dayPhrase = `Rollout starts ${MONTHS[START.getMonth()]} ${START.getDate()} — ${1 - dayN} day(s) to go`;
+  else if (dayN > 30) dayPhrase = `Day ${dayN} — 30-day rollout complete. Review the playbook and start month 2.`;
+  else dayPhrase = `Day ${dayN} of 30`;
+  document.getElementById('todayLabel').textContent = `${dateStr} · ${dayPhrase}`;
+}
+
+function taskMatches(t, idx, filter, todayN) {
+  const id = taskId(t, idx);
+  if (filter === 'all') return true;
+  if (filter === 'undone') return !isDone(id);
+  if (filter === 'today') return t.day === todayN;
+  if (filter === 'week') {
+    const weekStart = Math.floor((todayN - 1) / 7) * 7 + 1;
+    return t.day >= weekStart && t.day < weekStart + 7;
+  }
+  return true;
+}
+
+function render() {
+  const todayN = dayIndexFromToday();
+  const days = document.getElementById('days');
+  days.innerHTML = '';
+
+  const byDay = {};
+  TASKS.forEach((t, idx) => {
+    if (!byDay[t.day]) byDay[t.day] = [];
+    byDay[t.day].push({ t, idx });
+  });
+
+  const dayNums = Object.keys(byDay).map(Number).sort((a,b)=>a-b);
+  let visibleDays = 0;
+
+  dayNums.forEach(d => {
+    const dt = dateForDay(d);
+    const items = byDay[d].filter(({t, idx}) => taskMatches(t, idx, currentFilter, todayN));
+    if (items.length === 0) return;
+    visibleDays++;
+
+    const isToday = d === todayN;
+    const isPast = d < todayN;
+    const dayEl = document.createElement('div');
+    dayEl.className = 'day' + (isToday ? ' today' : '') + (isPast ? ' past' : '');
+
+    const doneInDay = byDay[d].filter(({t, idx}) => isDone(taskId(t, idx))).length;
+    const totalInDay = byDay[d].length;
+
+    const head = document.createElement('div');
+    head.className = 'day-head';
+    head.innerHTML = `
+      <span class="day-num">Day ${d}</span>
+      <span class="day-date">${dt.getDate()} ${MONTHS[dt.getMonth()]}</span>
+      <span class="day-dow">${DOW[dt.getDay()]}</span>
+      <span class="day-count"><b>${doneInDay}</b>/${totalInDay} done</span>
+      ${isToday ? '<span class="day-badge">Today</span>' : ''}
+    `;
+    dayEl.appendChild(head);
+
+    items.forEach(({t, idx}) => {
+      const id = taskId(t, idx);
+      const done = isDone(id);
+      const taskEl = document.createElement('label');
+      taskEl.className = 'task' + (done ? ' done' : '');
+      taskEl.htmlFor = id;
+      taskEl.innerHTML = `
+        <input type="checkbox" id="${id}" ${done ? 'checked' : ''}>
+        <div class="task-body">
+          <div class="task-title">${escapeHtml(t.title)}</div>
+          <div class="task-meta">
+            <span class="task-cat ${t.cat}">${CAT_LABELS[t.cat]}</span>
+            <span class="p-badge p${t.priority}">P${t.priority}</span>
+          </div>
+          <div class="task-note">${escapeHtml(t.note).replace(/\/blog\/[a-z-]+/g, m => `<a href="${m}" target="_blank" rel="noopener">${m}</a>`)}</div>
+        </div>
+      `;
+      const cb = taskEl.querySelector('input');
+      cb.addEventListener('change', () => {
+        setDone(id, cb.checked);
+        taskEl.classList.toggle('done', cb.checked);
+        updateProgress();
+        // update per-day count without full re-render
+        head.querySelector('.day-count b').textContent = byDay[d].filter(({t, idx}) => isDone(taskId(t, idx))).length;
+      });
+      dayEl.appendChild(taskEl);
+    });
+
+    days.appendChild(dayEl);
+  });
+
+  if (visibleDays === 0) {
+    const empty = document.createElement('div');
+    empty.className = 'empty';
+    let msg;
+    if (currentFilter === 'today') {
+      if (todayN < 1) msg = { h: 'Rollout has not started yet', p: `First tasks unlock on ${dateForDay(1).toDateString()}.` };
+      else if (todayN > 30) msg = { h: '30-day rollout complete', p: 'Time to plan month 2 — see playbook Section 10, Priority 4.' };
+      else msg = { h: 'No tasks scheduled today', p: 'Enjoy the breather. Check "This week" for what\'s coming.' };
+    } else if (currentFilter === 'undone') {
+      msg = { h: 'All caught up', p: 'Every task is checked off. Nice work.' };
+    } else {
+      msg = { h: 'Nothing matches this filter', p: 'Try switching filter.' };
+    }
+    empty.innerHTML = `<h3>${msg.h}</h3><p>${msg.p}</p>`;
+    days.appendChild(empty);
+  }
+}
+
+function updateProgress() {
+  const total = TASKS.length;
+  const done = TASKS.reduce((n, t, idx) => n + (isDone(taskId(t, idx)) ? 1 : 0), 0);
+  document.getElementById('doneCount').textContent = done;
+  document.getElementById('totalCount').textContent = total;
+  document.getElementById('progressFill').style.width = (total ? (done / total * 100) : 0) + '%';
+
+  const todayN = dayIndexFromToday();
+  const counts = { today: 0, week: 0, undone: 0, all: total };
+  TASKS.forEach((t, idx) => {
+    const id = taskId(t, idx);
+    if (t.day === todayN) counts.today++;
+    const weekStart = Math.floor((todayN - 1) / 7) * 7 + 1;
+    if (t.day >= weekStart && t.day < weekStart + 7) counts.week++;
+    if (!isDone(id)) counts.undone++;
+  });
+  document.getElementById('c-today').textContent = counts.today;
+  document.getElementById('c-week').textContent = counts.week;
+  document.getElementById('c-undone').textContent = counts.undone;
+  document.getElementById('c-all').textContent = counts.all;
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function resetAll() {
+  if (!confirm('Reset all task checkboxes? This clears local progress.')) return;
+  state = {};
+  localStorage.removeItem(STATE_KEY);
+  render();
+  updateProgress();
+}
+
+document.getElementById('filters').addEventListener('click', e => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentFilter = btn.dataset.f;
+  render();
+});
+
+// Init
+renderTodayLabel();
+render();
+updateProgress();
+</script>
+
+</body>
+</html>
