@@ -308,9 +308,9 @@ posthog.init('phc_BP3BBVTPwtw3sT5i4ZVv3E72PCNmZLEcHMkpWuL7u7qV',{api_host:'https
 .marquee span::after{content:"";position:absolute;right:-3px;top:50%;width:4px;height:4px;background:var(--gold);border-radius:50%;transform:translateY(-50%)}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce), (max-width: 640px){
-  .marquee{padding:22px 18px}
-  .marquee-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto;gap:10px;text-align:center}
-  .marquee span{white-space:nowrap;padding:7px 14px;position:static;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:20px;font-size:11px;letter-spacing:.14em}
+  .marquee{padding:14px 14px}
+  .marquee-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto;gap:6px;text-align:center}
+  .marquee span{white-space:nowrap;padding:4px 10px;position:static;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:14px;font-size:10px;letter-spacing:.1em}
   .marquee span::after{display:none}
   /* Static view shows one set only — the second half was only for the seamless scroll loop */
   .marquee-track > span:nth-child(n+8){display:none}
