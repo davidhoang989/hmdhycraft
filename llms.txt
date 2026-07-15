@@ -36,6 +36,11 @@ HMD is not a factory. Handwoven water hyacinth is a cottage craft; there is no s
 - Quality control: hand inspection at village level and at HMD's HCMC drying/packing facility. Pattern and dimension checked against approved samples. Moisture kept below 15 percent. Eco-friendly anti-mould treatment on every piece. Third-party inspection (SGS, TÜV, buyer-nominated) arranged on request.
 - Certifications: BSCI-certified workshop network. Phytosanitary certificates and Certificate of Origin (Form B, Form E, Form EUR.1) issued through Vietnam Customs. Anti-mould treatment compliant with import regulations for EU, UK, US, Canada, Australia, Japan.
 
+## Uses (buyer-application shortlists)
+Landing pages organised by buyer application. Each page carries the SKU shortlist, MOQ, HS code, incoterm, lead time, and a use-case-specific FAQ. Meant for wholesale buyers who know the category they need and want the fitting SKUs at a glance.
+- [Uses hub](https://www.hmdhycraft.com/uses): index of all use-case pages.
+- [Bathroom Storage Baskets — wholesale supplier from Vietnam](https://www.hmdhycraft.com/uses/bathroom-storage-baskets): nested handwoven sets in water hyacinth and seagrass for retail shelves, hotel amenity carts, and gift assortments. HMD-005, HMD-013, HMD-017, HMD-031.
+
 ## Key pages
 - [Home](https://www.hmdhycraft.com/): materials, categories, production, workshop network, featured products, buyer FAQ.
 - [Blog / Journal](https://www.hmdhycraft.com/blog): notes on craft, materials, sourcing, and export.
