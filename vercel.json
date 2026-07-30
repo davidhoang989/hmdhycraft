@@ -1,6 +1,13 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/blog/water-hyacinth-vs-seagrass-vs-rattan",
+      "destination": "/blog/water-hyacinth-vs-seagrass",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

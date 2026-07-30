@@ -79,10 +79,22 @@
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.hmdhycraft.com/blog/water-hyacinth-vs-seagrass-vs-rattan</loc>
-    <lastmod>2026-07-14</lastmod>
+    <loc>https://www.hmdhycraft.com/blog/water-hyacinth-vs-seagrass</loc>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.hmdhycraft.com/blog/water-hyacinth-vs-rattan</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.hmdhycraft.com/blog/water-hyacinth-vs-bamboo</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.hmdhycraft.com/blog/vietnam-vs-china-vs-indonesia-handicraft-sourcing</loc>
