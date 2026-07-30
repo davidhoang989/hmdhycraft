@@ -474,6 +474,32 @@ table.cmp tr:nth-child(even) td{background:#fbfaf5}
 .related ul li{padding:0}
 .related a{display:block;padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:4px;color:var(--green);font-size:15px}
 .related a:hover{background:var(--cream)}
+details.toc{background:var(--cream);padding:26px 30px;border-left:3px solid var(--gold);margin:40px 0}
+details.toc summary{cursor:pointer;list-style:none;outline:none}
+details.toc summary::-webkit-details-marker{display:none}
+details.toc summary::marker{display:none}
+details.toc summary h4{display:inline;margin:0}
+details.toc[open] summary h4::after{content:" ▾"}
+details.toc:not([open]) summary h4::after{content:" ▸"}
+.toc-meta{font-family:var(--sans);font-size:11px;color:var(--muted);letter-spacing:.05em;text-transform:none;margin-left:8px;font-weight:400}
+details.toc ol{margin-top:12px;list-style:decimal inside;color:var(--ink)}
+details.toc ol li{padding:3px 0}
+details.toc ol ol{margin:4px 0 6px 22px;font-size:14px;color:var(--muted)}
+details.toc ol ol li{padding:1px 0}
+details.toc a{border-bottom:1px dotted var(--muted)}
+details.toc a:hover{color:var(--green);border-color:var(--green)}
+table.cmp caption{font-family:var(--sans);font-size:13px;color:var(--muted);text-align:left;padding:8px 0;caption-side:top}
+.calc{background:#fdfdf8;border:1px solid var(--line);border-radius:6px;padding:22px 24px;margin:24px 0 32px}
+.calc-row{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.calc-row label{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--green);width:180px;flex-shrink:0}
+.calc-row select,.calc-row input{flex:1;padding:8px 10px;border:1px solid var(--line);border-radius:4px;font-size:15px;font-family:var(--sans);background:#fff;color:var(--ink)}
+.calc-row input:focus,.calc-row select:focus{outline:2px solid var(--gold);outline-offset:1px}
+.calc-out{margin-top:16px;padding-top:16px;border-top:1px dashed var(--line);font-size:15px}
+.calc-out p{margin:6px 0}
+.calc-note{font-size:13px;color:var(--muted);font-style:italic;margin-top:12px}
+.calc-out .ok{color:#2f6f3d;font-weight:600}
+.calc-out .warn{color:#9a6300;font-weight:600}
+@media(max-width:640px){.calc-row{flex-direction:column;align-items:stretch;gap:6px}.calc-row label{width:auto}}
 </style>
 </head>
 <body>
@@ -493,22 +519,38 @@ table.cmp tr:nth-child(even) td{background:#fbfaf5}
 
     <p class="lead">Water hyacinth baskets are the workhorse of the natural-fibre home-decor category. They store, they hamper, they hold plants, they wrap gifts. They land at a price point that ships thousands of units per SKU without eating the buyer's margin. This page is the reference we give to first-time HMD Hycraft buyers who want to understand the material, the types, the trade-offs against seagrass and rattan, and the practicals of moving a container from the Mekong Delta to their DC.</p>
 
-    <div class="toc" aria-label="On this page">
-      <h4>On this page</h4>
+    <details class="toc" open aria-label="On this page">
+      <summary><h4>On this page<span class="toc-meta">· 11 sections · ~9 min read · jump to any</span></h4></summary>
       <ol>
         <li><a href="#what">What a water hyacinth basket is</a></li>
         <li><a href="#manufacturer">Water hyacinth basket manufacturer in Vietnam</a></li>
         <li><a href="#types">Types of water hyacinth baskets</a></li>
         <li><a href="#compare">Water hyacinth vs seagrass, rattan and bamboo</a></li>
         <li><a href="#eco">Sustainability and the invasive-species story</a></li>
-        <li><a href="#qc">Quality control and supply chain</a></li>
-        <li><a href="#wholesale">Wholesale, bulk export and supplier terms — MOQ, lead time, container maths</a></li>
-        <li><a href="#bulk-export">Container load maths for water hyacinth basket bulk export</a></li>
+        <li><a href="#qc">Quality control and supply chain</a>
+          <ol>
+            <li><a href="#qc-risk">Where the quality risk sits</a></li>
+            <li><a href="#qc-compliance">Compliance and certification</a></li>
+          </ol>
+        </li>
+        <li><a href="#wholesale">Wholesale, bulk export and supplier terms — MOQ, lead time, container maths</a>
+          <ol>
+            <li><a href="#moq">MOQ</a></li>
+            <li><a href="#lead-time">Lead time</a></li>
+            <li><a href="#container-maths">Container maths</a></li>
+            <li><a href="#payment">Payment</a></li>
+          </ol>
+        </li>
+        <li><a href="#bulk-export">Container load maths for water hyacinth basket bulk export</a>
+          <ol>
+            <li><a href="#calc">MOQ + container calculator (interactive)</a></li>
+          </ol>
+        </li>
         <li><a href="#care">Care and maintenance</a></li>
         <li><a href="#skus">Featured SKU shortlist</a></li>
         <li><a href="#faq">Frequently asked questions</a></li>
       </ol>
-    </div>
+    </details>
 
     <h2 id="what">What a water hyacinth basket is</h2>
     <p>Water hyacinth (<i>Eichhornia crassipes</i>) is a floating freshwater plant with round leaves and lilac flowers. It grows aggressively across the Mekong Delta in southern Vietnam, forming dense mats on rivers, canals, and shrimp ponds. Left alone it clogs waterways and starves fish habitats of oxygen. Harvested, dried, and twisted into rope, it becomes the raw material for one of Vietnam's largest handicraft export categories.</p>
@@ -538,14 +580,23 @@ table.cmp tr:nth-child(even) td{background:#fbfaf5}
     <p>Buyers who are new to natural-fibre baskets often ask which material to specify. There is no single winner. Each has a strength and each has a fair use case. A retail buyer usually specifies a mixed programme across two or three materials to create a natural collection that reads coherent on the shelf.</p>
     <div class="tblwrap">
       <table class="cmp">
+        <caption>Comparison of natural-fibre basket materials — feel, colour, best-fit programmes, indicative price index (water hyacinth = 100), and container nesting efficiency for wholesale export from Vietnam.</caption>
         <thead>
-          <tr><th>Material</th><th>Feel</th><th>Colour</th><th>Best for</th><th>Weak against</th></tr>
+          <tr>
+            <th>Material</th>
+            <th>Feel</th>
+            <th>Colour</th>
+            <th>Best for</th>
+            <th>Weak against</th>
+            <th>Price index<br><small>(WH = 100)</small></th>
+            <th>Container fit</th>
+          </tr>
         </thead>
         <tbody>
-          <tr><td><b>Water hyacinth</b></td><td>Soft, warm, springy</td><td>Even beige-brown; takes wash dyes cleanly</td><td>Storage, laundry, gift hampers, planters, nursery</td><td>Hard-edge geometric patterns (softness limits pattern)</td></tr>
-          <tr><td>Seagrass</td><td>Coarser, stiffer, cooler</td><td>Greenish beige, uneven</td><td>Coastal-look decor, rope handles, floor pieces</td><td>Nursery (rougher texture on skin)</td></tr>
-          <tr><td>Rattan</td><td>Hard, glossy</td><td>Golden yellow to warm brown</td><td>Fine weave patterns, furniture, chairbacks</td><td>Casual utility storage at value price</td></tr>
-          <tr><td>Bamboo</td><td>Hard and rigid</td><td>Pale beige to dark carbonised</td><td>Frames, boxes, food-service SKUs</td><td>Soft-touch retail programmes</td></tr>
+          <tr><td><b>Water hyacinth</b></td><td>Soft, warm, springy</td><td>Even beige-brown; takes wash dyes cleanly</td><td>Storage, laundry, gift hampers, planters, nursery</td><td>Hard-edge geometric patterns (softness limits pattern)</td><td>100</td><td>Excellent — nests tightly (2,200 to 3,000 pcs / 40'HQ)</td></tr>
+          <tr><td>Seagrass</td><td>Coarser, stiffer, cooler</td><td>Greenish beige, uneven</td><td>Coastal-look decor, rope handles, floor pieces</td><td>Nursery (rougher texture on skin)</td><td>115 to 125</td><td>Very good — nests well when shape allows</td></tr>
+          <tr><td>Rattan</td><td>Hard, glossy</td><td>Golden yellow to warm brown</td><td>Fine weave patterns, furniture, chairbacks</td><td>Casual utility storage at value price</td><td>130 to 150</td><td>Fair — rigid, low nesting efficiency</td></tr>
+          <tr><td>Bamboo</td><td>Hard and rigid</td><td>Pale beige to dark carbonised</td><td>Frames, boxes, food-service SKUs</td><td>Soft-touch retail programmes</td><td>110 to 130</td><td>Fair to poor — rigid frames, minimal nesting</td></tr>
         </tbody>
       </table>
     </div>
@@ -558,14 +609,14 @@ table.cmp tr:nth-child(even) td{background:#fbfaf5}
 
     <h2 id="qc">Quality control and supply chain</h2>
     <p>HMD Hycraft is an export intermediary, not a factory. Handwoven water hyacinth is a cottage craft — no single factory produces it at industrial scale. What HMD provides is quality control, export compliance, and logistics across a trusted network of BSCI-audited weaving cooperatives in Đồng Tháp Province. That intermediary role is deliberate: it lets buyers place one order and receive one container of consistent goods without having to build a supplier network of their own inside the Mekong Delta.</p>
-    <h3>Where the quality risk sits</h3>
+    <h3 id="qc-risk">Where the quality risk sits</h3>
     <p>Three risks matter for a buyer moving water hyacinth baskets:</p>
     <ul>
       <li><b>Moisture and mould.</b> Baskets dispatched above 15 percent internal moisture will grow mould in the container during the 30 to 45 days of ocean transit. HMD dries every unit at HCMC and applies an eco-friendly anti-mould treatment. Buyer's inspection at the DC should find zero mould claims across a container.</li>
       <li><b>Dimensional drift.</b> Handwoven work has natural tolerance. HMD holds tolerance at ±5 percent on height and diameter against the approved sample; anything above that is rejected at the packing stage.</li>
       <li><b>Weave discipline.</b> Loose or uneven weave is a village-level issue. HMD's field team visits partner workshops during production to catch drift early. A retail buyer who cares about visual consistency can nominate a third-party auditor (SGS, Bureau Veritas, or the buyer's own team) at any stage; audit fees are on the buyer's account.</li>
     </ul>
-    <h3>Compliance and certification</h3>
+    <h3 id="qc-compliance">Compliance and certification</h3>
     <p>Water hyacinth baskets classify under HS 4602 ("plaiting materials, other than of vegetable materials"). Phytosanitary certificates and Certificate of Origin (Form A, Form B, Form E, or Form EUR.1 depending on destination) are issued through Vietnam Customs before B/L release. Anti-mould treatment is compliant with import regulations for the EU, UK, US, Canada, Australia, Japan, and South Africa. Workshop partners are BSCI-audited; SEDEX and BRC-Consumer Products audits can be arranged through nominated third parties.</p>
 
     <h2 id="wholesale">Wholesale, bulk export and supplier terms — MOQ, lead time, container maths</h2>
@@ -573,13 +624,13 @@ table.cmp tr:nth-child(even) td{background:#fbfaf5}
     <div class="callout">
       <b>Rule of thumb.</b> A 40-foot high-cube container carries 2,200 to 3,000 water hyacinth baskets in a nested-set programme, or 1,400 to 1,900 in a mixed programme of larger single pieces (hampers, floor baskets). Deposit 30 percent, balance 70 percent before B/L release, T/T. Lead time 45 to 60 days from PO and approved samples. FOB HCMC (Cat Lai or Cai Mep). Freight is the buyer's forwarder unless CIF or DAP is specifically quoted.
     </div>
-    <h3>MOQ</h3>
+    <h3 id="moq">MOQ</h3>
     <p>Standard SKUs from the Storage Baskets Collection 2026 start at 300 to 500 units per SKU. Mixed containers with several SKUs are welcomed and often more practical for a first order. Custom sizes and colourways add a sampling window of two to three weeks.</p>
-    <h3>Lead time</h3>
+    <h3 id="lead-time">Lead time</h3>
     <p>Standard lead time is 45 to 60 days from confirmed PO and approved pre-production samples. That includes cottage drying (weather-dependent), weaving, framing, kiln-drying to below 15 percent moisture, anti-mould treatment, packing, and container consolidation at HMD's HCMC facility. Peak-season windows (August to November) may extend by 10 to 15 days as village capacity peaks.</p>
-    <h3>Container maths</h3>
+    <h3 id="container-maths">Container maths</h3>
     <p>A 40'HQ container has an internal volume of roughly 76.4 m³. Nested set programmes ship efficiently because the smaller pieces sit inside the larger ones — a set-of-3 nested basket takes only slightly more volume than the largest piece alone. Single-piece programmes (laundry hampers, floor baskets) fill the container faster on volume but often before hitting weight limits. HMD provides a container load plan with cartons per SKU, palletisation option, and pre-shipment photos before B/L is issued.</p>
-    <h3>Payment</h3>
+    <h3 id="payment">Payment</h3>
     <p>Standard terms are 30 percent deposit against proforma invoice and 70 percent balance before B/L release, by T/T. For repeat buyers, L/C at sight or open terms can be discussed on a case-by-case basis. Invoicing is in USD or EUR. HMD does not accept cryptocurrency for wholesale invoices.</p>
 
     <h2 id="bulk-export">Container load maths for water hyacinth basket bulk export</h2>
@@ -593,6 +644,64 @@ table.cmp tr:nth-child(even) td{background:#fbfaf5}
     <p>HMD Hycraft provides a container load plan before B/L release. The plan lists cartons per SKU, palletisation option (Euro pallet 1.2 × 0.8 m, US pallet 1.2 × 1.0 m, or floor-loaded), export cartons dimensions, gross weight, and pre-shipment photos of the loaded container. Buyers who need to pre-book DC receiving slots get the load plan two to three days before container gate-in at Cat Lai or Cai Mep.</p>
     <p>Documentation released with the container: commercial invoice, packing list, ocean B/L, phytosanitary certificate, Certificate of Origin (Form A for GSP-eligible destinations, EUR.1 for the EU-Vietnam FTA, Form B for the US, or Form E for ASEAN), and — where the buyer or their forwarder specifies — fumigation certificate or ISPM-15 stamp on wooden crating.</p>
     <p>Ocean transit from Ho Chi Minh City is 24 to 28 days to the US East Coast, 30 to 34 days to the US West Coast via transhipment, 18 to 22 days to Northern Europe (Rotterdam, Hamburg, Antwerp), 14 to 18 days to the UK (Felixstowe, Southampton), 22 to 26 days to Melbourne, and 24 to 28 days to Durban. Add three to seven days for inland trucking depending on DC location. Freight is the buyer's forwarder unless CIF or DAP is quoted specifically in the proforma.</p>
+
+    <h3 id="calc">MOQ + container calculator</h3>
+    <p>Plug in your programme size below to see the number of 40'HQ containers required, the MOQ compliance check per SKU, and the lead-time framing. The averages match the pieces-per-container numbers set out above; the calculator is a first-pass planning tool, not a firm quote.</p>
+    <div class="calc" aria-label="MOQ and container calculator">
+      <div class="calc-row">
+        <label for="prog-type">Programme type</label>
+        <select id="prog-type">
+          <option value="nested">Nested-set (highest efficiency)</option>
+          <option value="mixed" selected>Mixed programme</option>
+          <option value="single">Single-piece (hampers, floor baskets)</option>
+        </select>
+      </div>
+      <div class="calc-row">
+        <label for="prog-skus">Number of SKUs</label>
+        <input id="prog-skus" type="number" min="1" max="200" value="4">
+      </div>
+      <div class="calc-row">
+        <label for="prog-pcs-sku">Units per SKU</label>
+        <input id="prog-pcs-sku" type="number" min="1" max="100000" value="500">
+      </div>
+      <div class="calc-out" id="calc-out" aria-live="polite">
+        <p>Enter your numbers to see the container count, MOQ check, and lead time.</p>
+      </div>
+    </div>
+    <script>
+    (function(){
+      var LOAD={nested:[2200,3000],mixed:[1800,2500],single:[1400,1900]};
+      var MOQ_MIN=300,MOQ_TARGET=500;
+      function fmt(n){return n.toLocaleString('en-US')}
+      function calc(){
+        var t=document.getElementById('prog-type').value;
+        var s=parseInt(document.getElementById('prog-skus').value,10)||0;
+        var u=parseInt(document.getElementById('prog-pcs-sku').value,10)||0;
+        var total=s*u;
+        var r=LOAD[t];
+        var cLo=Math.ceil(total/r[1]);
+        var cHi=Math.ceil(total/r[0]);
+        var moqCls, moqMsg;
+        if(u>=MOQ_TARGET){moqCls='ok';moqMsg=u+' units/SKU sits above the 500/SKU target for standard designs.'}
+        else if(u>=MOQ_MIN){moqCls='ok';moqMsg=u+' units/SKU meets the 300 minimum. Raising to 500 typically unlocks better per-unit costing.'}
+        else{moqCls='warn';moqMsg=u+' units/SKU is below the 300 minimum. HMD may combine with other SKUs, or a sampling-only order can be quoted.'}
+        var out=document.getElementById('calc-out');
+        if(!total||!s||!u){out.innerHTML='<p>Enter your numbers to see the container count, MOQ check, and lead time.</p>';return}
+        out.innerHTML=
+          '<p><b>Total programme:</b> '+fmt(total)+' pieces across '+fmt(s)+' SKUs</p>'+
+          '<p><b>Containers needed (40\'HQ):</b> '+cLo+(cLo===cHi?'':' to '+cHi)+' container'+(cHi>1?'s':'')+'</p>'+
+          '<p><b>MOQ check:</b> <span class="'+moqCls+'">'+moqMsg+'</span></p>'+
+          '<p><b>Lead time:</b> 45 to 60 days production from confirmed PO and approved samples, then ocean transit per destination (see section above).</p>'+
+          '<p class="calc-note">Calculator uses HMD averages for the selected programme type. A firm quote confirms exact carton counts, container plan, and any custom-spec surcharges.</p>';
+      }
+      ['prog-type','prog-skus','prog-pcs-sku'].forEach(function(id){
+        var el=document.getElementById(id);
+        el.addEventListener('input',calc);
+        el.addEventListener('change',calc);
+      });
+      calc();
+    })();
+    </script>
 
     <h2 id="care">Care and maintenance for the end consumer</h2>
     <p>The retailer's care card can lift much of this straight into the box. Water hyacinth baskets look after themselves if the end consumer follows a short list of do's and don'ts.</p>
