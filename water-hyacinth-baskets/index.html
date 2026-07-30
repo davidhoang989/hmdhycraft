@@ -519,6 +519,67 @@ table.cmp caption{font-family:var(--sans);font-size:13px;color:var(--muted);text
 
     <p class="lead">Water hyacinth baskets are the workhorse of the natural-fibre home-decor category. They store, they hamper, they hold plants, they wrap gifts. They land at a price point that ships thousands of units per SKU without eating the buyer's margin. This page is the reference we give to first-time HMD Hycraft buyers who want to understand the material, the types, the trade-offs against seagrass and rattan, and the practicals of moving a container from the Mekong Delta to their DC.</p>
 
+    <figure class="hmd-reel" id="hmd-reel-a" aria-roledescription="carousel" aria-label="HMD Hycraft workshop-to-container story reel">
+      <style>
+      .hmd-reel{position:relative;margin:36px 0;background:#1f3d30;border-radius:14px;overflow:hidden;box-shadow:0 20px 44px rgba(0,0,0,.14);max-width:100%}
+      .hmd-reel .hmd-reel-stage{position:relative;width:100%;aspect-ratio:16/9;background:#1a3328;overflow:hidden}
+      .hmd-reel .hmd-reel-slide{position:absolute;inset:0;opacity:0;transition:opacity 700ms ease-in-out;will-change:opacity}
+      .hmd-reel .hmd-reel-slide.is-active{opacity:1}
+      .hmd-reel .hmd-reel-slide img{width:100%;height:100%;object-fit:cover;display:block}
+      .hmd-reel .hmd-reel-caption{position:absolute;left:0;right:0;bottom:0;padding:22px 26px 26px;background:linear-gradient(180deg,rgba(26,51,40,0) 0%,rgba(26,51,40,.85) 55%,rgba(26,51,40,.95) 100%);color:#f4f1e6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;letter-spacing:.01em}
+      .hmd-reel .hmd-reel-caption .k{display:inline-block;background:#b58a3c;color:#1a3328;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:4px 10px;border-radius:4px;margin-bottom:8px;font-family:inherit}
+      .hmd-reel .hmd-reel-caption .t{font-family:Georgia,'Times New Roman',serif;font-size:16px;color:#f6f3e9}
+      .hmd-reel .hmd-reel-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(26,51,40,.72);color:#f3efe2;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s,opacity .18s;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;opacity:0}
+      .hmd-reel:hover .hmd-reel-nav,.hmd-reel:focus-within .hmd-reel-nav{opacity:1}
+      .hmd-reel .hmd-reel-nav:hover{background:#b58a3c;color:#1a3328}
+      .hmd-reel .hmd-reel-nav.hmd-reel-prev{left:14px}
+      .hmd-reel .hmd-reel-nav.hmd-reel-next{right:14px}
+      .hmd-reel .hmd-reel-nav:focus-visible{outline:2px solid #cba85a;outline-offset:2px;opacity:1}
+      .hmd-reel .hmd-reel-dots{position:absolute;top:14px;right:14px;display:flex;gap:6px;padding:6px 10px;background:rgba(26,51,40,.5);border-radius:20px;backdrop-filter:blur(4px)}
+      .hmd-reel .hmd-reel-dots button{width:8px;height:8px;border-radius:50%;border:0;background:rgba(243,239,226,.4);cursor:pointer;padding:0;transition:background .18s,transform .18s}
+      .hmd-reel .hmd-reel-dots button.is-active{background:#cba85a;transform:scale(1.25)}
+      .hmd-reel .hmd-reel-dots button:hover{background:rgba(243,239,226,.75)}
+      .hmd-reel .hmd-reel-dots button:focus-visible{outline:2px solid #cba85a;outline-offset:2px}
+      .hmd-reel .hmd-reel-progress{position:absolute;left:0;bottom:0;height:3px;background:#b58a3c;width:0;transition:width 4400ms linear;z-index:2;pointer-events:none}
+      .hmd-reel .hmd-reel-progress.is-idle{transition:none;width:0}
+      .hmd-reel .hmd-reel-progress.is-running{width:100%}
+      .hmd-reel .hmd-reel-toggle{position:absolute;top:14px;left:14px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(26,51,40,.6);color:#f3efe2;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+      .hmd-reel .hmd-reel-toggle:hover{background:#b58a3c;color:#1a3328}
+      .hmd-reel .hmd-reel-toggle:focus-visible{outline:2px solid #cba85a;outline-offset:2px}
+      .hmd-reel .hmd-reel-caption-below{padding:14px 24px 18px;font-family:Georgia,'Times New Roman',serif;font-style:italic;color:#cfd6c9;font-size:14px;text-align:center;background:#1a3328}
+      @media(max-width:600px){.hmd-reel .hmd-reel-caption{padding:16px 18px 18px;font-size:13px}.hmd-reel .hmd-reel-caption .t{font-size:14px}.hmd-reel .hmd-reel-nav{width:36px;height:36px;opacity:1;background:rgba(26,51,40,.5)}}
+      @media(prefers-reduced-motion:reduce){.hmd-reel .hmd-reel-slide{transition:none}.hmd-reel .hmd-reel-progress{display:none}}
+      </style>
+      <div class="hmd-reel-stage" role="group" aria-label="8-frame story of a Vietnamese handwoven basket, from Mekong harvest to export container">
+        <div class="hmd-reel-slide is-active"><img src="/assets/web/water-hyacinth-material-mekong-delta.jpg" alt="Water hyacinth harvested from the Mekong Delta in southern Vietnam" width="1600" height="900" loading="lazy" decoding="async"><div class="hmd-reel-caption"><span class="k">01 · Source</span><div class="t">Water hyacinth harvested from the Mekong Delta in southern Vietnam</div></div></div>
+        <div class="hmd-reel-slide"><img src="/assets/web/workshop1.jpg" alt="Artisans hand-weaving water hyacinth baskets in a Đồng Tháp cooperative" width="1600" height="900" loading="lazy" decoding="async"><div class="hmd-reel-caption"><span class="k">02 · Weave</span><div class="t">Artisans weaving inside a BSCI-certified cooperative in Đồng Tháp Province</div></div></div>
+        <div class="hmd-reel-slide"><img src="/assets/web/workshop3.jpg" alt="Close-up of handwoven natural fibre basketry in progress" width="1600" height="900" loading="lazy" decoding="async"><div class="hmd-reel-caption"><span class="k">03 · Handmade</span><div class="t">Every basket hand-woven — no machine-woven parts anywhere in the process</div></div></div>
+        <div class="hmd-reel-slide"><img src="/assets/web/handwoven-basket-set-vietnam-2026.jpg" alt="Finished handwoven water hyacinth basket set from Vietnam 2026 collection" width="1600" height="900" loading="lazy" decoding="async"><div class="hmd-reel-caption"><span class="k">04 · Set</span><div class="t">Finished nested set — set-of-2 water hyacinth storage basket, brown wash</div></div></div>
+        <div class="hmd-reel-slide"><img src="/assets/web/water-hyacinth-basket-collection-2026.jpg" alt="HMD Hycraft water hyacinth basket collection 2026" width="1600" height="900" loading="lazy" decoding="async"><div class="hmd-reel-caption"><span class="k">05 · Collection</span><div class="t">Storage Baskets Collection 2026 — 74 designs across the working categories</div></div></div>
+        <div class="hmd-reel-slide"><img src="/assets/web/seagrass-basket-collection-2026.jpg" alt="Seagrass baskets from north-central Vietnam alongside water hyacinth pieces" width="1600" height="900" loading="lazy" decoding="async"><div class="hmd-reel-caption"><span class="k">06 · Variety</span><div class="t">Seagrass baskets from the north-central coast, paired with Mekong water hyacinth</div></div></div>
+        <div class="hmd-reel-slide"><img src="/assets/web/p017.jpg" alt="Rectangular water hyacinth storage basket, set of three, detail view" width="1600" height="900" loading="lazy" decoding="async"><div class="hmd-reel-caption"><span class="k">07 · Detail</span><div class="t">Rectangular storage basket, set of 3 — pillared weave for shape retention</div></div></div>
+        <div class="hmd-reel-slide"><img src="/assets/web/export6.jpg" alt="Container consolidation at FOB Ho Chi Minh City port" width="1600" height="900" loading="lazy" decoding="async"><div class="hmd-reel-caption"><span class="k">08 · Export</span><div class="t">Container consolidation at FOB Ho Chi Minh City — ready to ship worldwide</div></div></div>
+        <div class="hmd-reel-progress" aria-hidden="true"></div>
+        <button type="button" class="hmd-reel-toggle" aria-label="Pause autoplay" aria-pressed="false">⏸</button>
+        <button type="button" class="hmd-reel-nav hmd-reel-prev" aria-label="Previous slide">‹</button>
+        <button type="button" class="hmd-reel-nav hmd-reel-next" aria-label="Next slide">›</button>
+        <div class="hmd-reel-dots" role="tablist" aria-label="Choose slide">
+          <button type="button" class="is-active" role="tab" aria-selected="true" aria-label="Slide 1 of 8"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="Slide 2 of 8"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="Slide 3 of 8"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="Slide 4 of 8"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="Slide 5 of 8"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="Slide 6 of 8"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="Slide 7 of 8"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="Slide 8 of 8"></button>
+        </div>
+      </div>
+      <figcaption class="hmd-reel-caption-below">Handwoven baskets from Mekong Delta to export container — 8-frame visual story of an HMD Hycraft shipment.</figcaption>
+    </figure>
+    <script>
+    (function(){var reel=document.getElementById('hmd-reel-a');if(!reel)return;var slides=reel.querySelectorAll('.hmd-reel-slide');var dots=reel.querySelectorAll('.hmd-reel-dots button');var prev=reel.querySelector('.hmd-reel-prev');var next=reel.querySelector('.hmd-reel-next');var toggle=reel.querySelector('.hmd-reel-toggle');var bar=reel.querySelector('.hmd-reel-progress');var idx=0,timer=null,paused=false,inView=false;var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;function show(n){slides[idx].classList.remove('is-active');dots[idx].classList.remove('is-active');dots[idx].setAttribute('aria-selected','false');idx=(n+slides.length)%slides.length;slides[idx].classList.add('is-active');dots[idx].classList.add('is-active');dots[idx].setAttribute('aria-selected','true');restartBar();}function restartBar(){if(!bar||reduced)return;bar.classList.remove('is-running');bar.classList.add('is-idle');void bar.offsetWidth;bar.classList.remove('is-idle');if(!paused&&inView)bar.classList.add('is-running');}function start(){if(timer||paused||!inView||reduced)return;timer=setInterval(function(){show(idx+1);},4500);if(bar){bar.classList.remove('is-idle');bar.classList.add('is-running');}}function stop(){if(timer){clearInterval(timer);timer=null;}if(bar){bar.classList.remove('is-running');bar.classList.add('is-idle');}}prev.addEventListener('click',function(){paused=true;stop();updateToggle();show(idx-1);});next.addEventListener('click',function(){paused=true;stop();updateToggle();show(idx+1);});dots.forEach(function(d,i){d.addEventListener('click',function(){paused=true;stop();updateToggle();show(i);});});toggle.addEventListener('click',function(){paused=!paused;updateToggle();if(paused)stop();else start();});function updateToggle(){toggle.textContent=paused?'▶':'⏸';toggle.setAttribute('aria-label',paused?'Play autoplay':'Pause autoplay');toggle.setAttribute('aria-pressed',paused?'true':'false');}if('IntersectionObserver' in window){new IntersectionObserver(function(entries){entries.forEach(function(e){inView=e.isIntersecting;if(inView&&!paused)start();else stop();});},{threshold:0.25}).observe(reel);}else{inView=true;start();}})();
+    </script>
+
     <details class="toc" open aria-label="On this page">
       <summary><h4>On this page<span class="toc-meta">· 11 sections · ~9 min read · jump to any</span></h4></summary>
       <ol>
