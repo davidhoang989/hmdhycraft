@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LCL vs FCL for a first Vietnamese basket order — a decision framework | HMD Strategy &amp; Export</title>
+<meta name="description" content="When to ship a first Vietnamese basket order as LCL (less-than-container) vs FCL (full container). CBM thresholds, freight cost per unit, transit time, damage risk. Worked comparison at 15/30/50 CBM.">
+<link rel="canonical" href="https://www.hmdhycraft.com/blog/lcl-vs-fcl-first-basket-order">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Joy Nguyễn Vietnam">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="LCL vs FCL for a first Vietnamese basket order — a decision framework">
+<meta property="og:description" content="LCL vs FCL for a first basket container: CBM thresholds, freight per unit, transit time, damage risk.">
+<meta property="og:url" content="https://www.hmdhycraft.com/blog/lcl-vs-fcl-first-basket-order">
+<meta property="og:image" content="https://www.hmdhycraft.com/assets/web/export6.jpg">
+<meta property="og:site_name" content="HMD Strategy &amp; Export">
+<meta property="article:published_time" content="2026-07-31T00:00:00+07:00">
+<meta property="article:author" content="Joy Nguyễn Vietnam">
+<meta property="article:section" content="Buying guide">
+<meta property="article:tag" content="LCL">
+<meta property="article:tag" content="FCL">
+<meta property="article:tag" content="Freight">
+<meta property="article:tag" content="First order">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LCL vs FCL for a first Vietnamese basket order">
+<meta name="twitter:description" content="Decision framework: CBM thresholds, freight per unit, damage risk.">
+<meta name="twitter:image" content="https://www.hmdhycraft.com/assets/web/export6.jpg">
+
+<link rel="icon" type="image/png" href="/assets/web/logo.png">
+<link rel="icon" type="image/webp" href="/assets/web/logo.webp">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"LCL vs FCL for a first Vietnamese basket order — a decision framework","description":"When to ship a first Vietnamese basket order as LCL (less-than-container) vs FCL (full container). CBM thresholds, freight cost per unit, transit time, damage risk.","image":"https://www.hmdhycraft.com/assets/web/export6.jpg","datePublished":"2026-07-31T00:00:00+07:00","dateModified":"2026-07-31T00:00:00+07:00","author":{"@type":"Person","name":"Joy Nguyễn Vietnam","jobTitle":"Director","worksFor":{"@type":"Organization","name":"HMD Strategy & Export"}},"publisher":{"@type":"Organization","name":"HMD Strategy & Export","logo":{"@type":"ImageObject","url":"https://www.hmdhycraft.com/assets/web/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.hmdhycraft.com/blog/lcl-vs-fcl-first-basket-order"},"keywords":"LCL FCL comparison, first basket order, less-than-container shipping, CBM threshold, freight per unit basket"}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.hmdhycraft.com/"},{"@type":"ListItem","position":2,"name":"Journal","item":"https://www.hmdhycraft.com/blog"},{"@type":"ListItem","position":3,"name":"LCL vs FCL for a first basket order","item":"https://www.hmdhycraft.com/blog/lcl-vs-fcl-first-basket-order"}]}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is the CBM threshold where FCL becomes cheaper than LCL?","acceptedAnswer":{"@type":"Answer","text":"Rough rule of thumb: below 25 CBM ship LCL, above 45 CBM ship FCL, between 25 and 45 CBM is the ambiguous zone where the answer depends on carrier pricing and destination port. The break-even shifts with market conditions — LCL per-CBM rates typically run $80 to $140 HCMC to US west coast, $95 to $170 HCMC to UK ports, $110 to $190 HCMC to Australia. FCL flat rate on a 40HQ typically runs $2,800 to $4,600 to the same destinations. Divide the FCL rate by 30 CBM (typical LCL-equivalent usable capacity of a floor-loaded 40HQ) and if per-CBM cost is lower than LCL rate, FCL wins."}},
+{"@type":"Question","name":"How long does LCL transit take versus FCL?","acceptedAnswer":{"@type":"Answer","text":"LCL transit is typically 7 to 14 days longer than FCL to the same destination. The extra time is consolidation (waiting at HCMC CFS for enough cargo from other shippers to fill the container), and deconsolidation at destination (waiting at destination CFS for other shippers' cargo to be unpacked before yours). Example transit HCMC to Long Beach: FCL 15-18 days, LCL 25-32 days. HCMC to Felixstowe: FCL 34-38 days, LCL 42-52 days. First-time buyers targeting a specific retail launch date should build the LCL extra time into the plan or pay the FCL premium for schedule certainty."}},
+{"@type":"Question","name":"Is damage risk higher on LCL shipments?","acceptedAnswer":{"@type":"Answer","text":"Yes, meaningfully. LCL cargo shares container space with 3 to 8 other shippers' cargo, meaning it is loaded, unloaded, and re-stacked multiple times during consolidation and deconsolidation at both origin and destination CFS. Typical damage rate on LCL basket shipments: 2 to 5 percent of pieces show handling damage on arrival. FCL cargo is loaded once at Vietnamese consolidation warehouse and unloaded once at destination DC; typical damage rate is under 1 percent. For premium retail SKUs where cosmetic damage is a total loss, this gap matters more than the freight cost gap."}},
+{"@type":"Question","name":"Can I mix LCL and FCL across a single PO?","acceptedAnswer":{"@type":"Answer","text":"Technically yes, but rarely commercially sensible. The double handling of splitting a production run across two shipping modes introduces coordination overhead that usually exceeds any freight saving. The one case where it works: air freight (or LCL) of a small back-fill quantity to hit an urgent retail date, while the main container ships FCL on the normal schedule. HMD arranges this hybrid on request; the buyer typically pays a modest coordination fee."}},
+{"@type":"Question","name":"What does LCL cost per unit for a typical basket order?","acceptedAnswer":{"@type":"Answer","text":"For a 15 CBM shipment (roughly 750 nested storage baskets or 300 tall pieces) HCMC to US west coast, LCL cost is typically $1,300 to $2,100 total — approximately $1.75 to $2.80 freight per retail unit. Same shipment as FCL on a partial 40HQ: $3,200 to $4,200 total — $4.30 to $5.60 freight per retail unit. LCL clearly wins on freight cost per unit at low volumes. Above ~30 CBM the equation flips because FCL has essentially flat freight regardless of actual utilisation."}},
+{"@type":"Question","name":"Which mode does HMD recommend for a first Vietnamese basket order?","acceptedAnswer":{"@type":"Answer","text":"Depends on volume. Under 20 CBM (roughly 3 SKUs at 300 pieces each): LCL clearly wins on cost and works fine schedule-wise. 20 to 40 CBM (5 to 7 SKUs at 300 pieces each): mixed 40HQ FCL is usually the right call because the freight saving is small but the schedule certainty, lower damage rate, and dedicated container are worth it. Above 40 CBM (8+ SKUs at 300 pieces each or higher volumes): FCL every time. For a first-time buyer we usually recommend 5-7 SKU mixed FCL as the sweet spot: enough assortment to test sell-through, comfortable freight economics, dedicated container schedule."}}
+]}
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EZ989BZB2Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EZ989BZB2Z');</script>
+
+<style>
+:root{--green:#1f3d30;--green-deep:#1a3328;--gold:#b58a3c;--gold-light:#cba85a;--cream:#f6f4ed;--card:#f1efe7;--ink:#2d2d2b;--muted:#6f6e69;--line:#e6e3d9;--serif:Georgia,'Times New Roman',serif;--sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;--wrap:820px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);line-height:1.75;background:#fff;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--serif);color:var(--green);font-weight:700;line-height:1.2}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);font-weight:700}
+.hero{background:var(--green);color:#f4f1e6;padding:110px 0 70px;text-align:center}
+.hero .eyebrow{color:#cfd6c9}
+.hero h1{color:#f6f3e9;font-size:clamp(28px,4.4vw,44px);margin:14px 0 18px;max-width:820px;margin-left:auto;margin-right:auto}
+.hero .meta{font-family:var(--serif);font-style:italic;color:var(--gold-light);font-size:16px}
+.hero .meta span{color:#cfd6c9;font-style:normal;letter-spacing:.1em;font-size:12px;text-transform:uppercase;margin:0 10px;font-family:var(--sans)}
+article{padding:70px 0 80px;font-size:17px;color:var(--ink)}
+article p{margin:0 0 22px}
+article p.lead{font-family:var(--serif);font-style:italic;font-size:21px;color:var(--green);line-height:1.5;margin-bottom:30px}
+article h2{font-size:26px;margin:44px 0 18px}
+article h3{font-size:20px;margin:32px 0 12px}
+article ul{list-style:none;padding:0;margin:0 0 26px}
+article ul li{padding:14px 0 14px 28px;border-bottom:1px solid var(--line);position:relative}
+article ul li:last-child{border-bottom:0}
+article ul li::before{content:"→";position:absolute;left:0;top:14px;color:var(--gold);font-weight:700}
+article ul li b{color:var(--green);font-weight:700}
+article blockquote{border-left:3px solid var(--gold);padding:14px 22px;background:var(--card);border-radius:0 8px 8px 0;margin:32px 0;font-family:var(--serif);font-style:italic;font-size:20px;color:var(--green)}
+article .table-wrap{overflow-x:auto;margin:0 0 30px}
+article table{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
+article table th{background:var(--card);color:var(--green);font-family:var(--serif);text-align:left;padding:12px 14px;border-bottom:2px solid var(--gold);font-weight:700;font-size:14px}
+article table td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+article table tr:last-child td{border-bottom:0}
+article .callout{background:var(--card);border-radius:10px;padding:22px 26px;margin:26px 0 30px;border-left:3px solid var(--green)}
+article .callout h3{margin-top:0}
+article .callout p:last-child{margin-bottom:0}
+article .tags{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+article .tags a{color:var(--gold);font-weight:600}
+.byline{background:var(--cream);padding:36px 32px;border-radius:12px;margin-top:44px;display:flex;gap:22px;align-items:center}
+.byline .avatar{width:56px;height:56px;border-radius:50%;background:var(--green);color:#f6f3e9;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:22px;flex-shrink:0}
+.byline .who{font-family:var(--serif);color:var(--green);font-weight:700;font-size:17px}
+.byline .role{color:var(--muted);font-size:14px;margin-top:2px}
+.byline .actions{margin-left:auto;display:flex;gap:10px}
+.byline .actions a{background:var(--gold);color:#1a3328;padding:9px 16px;border-radius:6px;font-weight:600;font-size:13px}
+.byline .actions a.outline{background:transparent;color:var(--green);border:1px solid var(--line)}
+@media(max-width:600px){.byline{flex-direction:column;align-items:flex-start;padding:26px 22px}.byline .actions{margin-left:0;flex-wrap:wrap}}
+.next-cta{background:var(--green);color:#f4f1e6;padding:70px 24px;text-align:center;margin-top:0}
+.next-cta h3{color:#f6f3e9;font-size:clamp(24px,3vw,32px);margin-bottom:14px}
+.next-cta p{color:#c4cabd;max-width:520px;margin:0 auto 26px}
+.next-cta a{display:inline-block;background:var(--gold);color:#1a3328;padding:14px 30px;border-radius:6px;font-weight:600;font-size:15px}
+.next-cta .back{display:inline-block;margin-top:22px;color:var(--gold-light);font-size:14px}
+footer.site{background:var(--green-deep);color:#c4cabd;padding:32px 24px;text-align:center;font-size:13px}
+footer.site a{color:var(--gold-light)}
+.floatmenu{position:fixed;top:18px;left:18px;z-index:100}
+.fm-btn{width:48px;height:48px;border-radius:50%;border:0;background:rgba(26,51,40,.94);color:#f3efe2;font-size:22px;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center}
+.fm-panel{position:absolute;top:58px;left:0;background:rgba(26,51,40,.96);backdrop-filter:blur(6px);border-radius:10px;padding:8px 0;min-width:170px;box-shadow:0 12px 30px rgba(0,0,0,.32);opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .18s,transform .18s}
+.fm-panel a{display:block;padding:11px 22px;color:#f3efe2;font-size:14px}
+.fm-panel a:hover{background:rgba(255,255,255,.08);color:var(--gold-light)}
+.floatmenu.open .fm-panel{opacity:1;transform:translateY(0);pointer-events:auto}
+.totop{position:fixed;bottom:22px;right:22px;width:46px;height:46px;border-radius:50%;border:0;background:rgba(26,51,40,.94);color:#f3efe2;font-size:20px;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.28);opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .3s,transform .3s;z-index:99;display:flex;align-items:center;justify-content:center}
+.totop.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.hmd-relx{background:#f6f4ed;padding:56px 24px 60px;margin-top:60px;border-top:1px solid #e6e3d9}
+.hmd-relx-w{max-width:1120px;margin:0 auto}
+.hmd-relx-h{font-family:Georgia,serif;color:#1f3d30;font-size:22px;margin:0 0 6px;text-align:center}
+.hmd-relx-sub{color:#6f6e69;font-size:14px;text-align:center;margin:0 0 24px}
+.hmd-relx-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+@media(max-width:720px){.hmd-relx-strip{grid-auto-flow:column;grid-auto-columns:78%;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.hmd-relx-strip>a{scroll-snap-align:start}}
+.hmd-relx-strip>a{display:flex;flex-direction:column;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.06);border:1px solid #e6e3d9;color:#2d2d2b;transition:transform .18s,box-shadow .18s}
+.hmd-relx-strip>a:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(0,0,0,.1)}
+.hmd-relx-thumb{aspect-ratio:16/10;background:#f1efe7;overflow:hidden}
+.hmd-relx-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.hmd-relx-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.hmd-relx-k{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#b58a3c;font-weight:700}
+.hmd-relx-t{font-family:Georgia,serif;color:#1f3d30;font-weight:700;font-size:15px;line-height:1.35}
+.hmd-relx-s{color:#6f6e69;font-size:13px;line-height:1.5;margin-top:auto}
+</style>
+</head>
+<body>
+<div id="floatmenu" class="floatmenu">
+  <button class="fm-btn" aria-label="Open menu" aria-expanded="false" onclick="var f=document.getElementById('floatmenu');var o=f.classList.toggle('open');this.setAttribute('aria-expanded',o);">☰</button>
+  <nav class="fm-panel" aria-label="Site navigation"><a href="/">Home</a><a href="/blog">Blog</a><a href="mailto:joy@hmdhycraft.com?subject=Enquiry%20from%20hmdhycraft.com">Email us</a></nav>
+</div>
+<script>document.addEventListener('click',function(e){var f=document.getElementById('floatmenu');if(f&&!f.contains(e.target)){f.classList.remove('open');var b=f.querySelector('.fm-btn');if(b)b.setAttribute('aria-expanded','false');}});</script>
+
+<header class="hero"><div class="wrap"><div class="eyebrow">Journal · Buying guide</div><h1>LCL vs FCL for a first Vietnamese basket order — a decision framework</h1><div class="meta"><time datetime="2026-07-31">31 July 2026</time><span>·</span><span>9 min read</span><span>·</span><span>Last updated 31 July 2026</span></div></div></header>
+
+<article><div class="wrap">
+<p class="lead">The single most common freight question from a first-time Vietnamese basket buyer: should I book a full container (FCL) or share space with other shippers (LCL)? The right answer varies by volume, destination port, target retail launch date, and how much cosmetic damage the retail SKU can tolerate. This piece is the decision framework — three worked comparisons at 15 CBM, 30 CBM, and 50 CBM, and the trade-offs that do not appear on the freight quote.</p>
+
+<p>Written for wholesale buyers, DTC founders, and category managers weighing shipping mode on a first Vietnamese basket container. Applies to any HS 4602 basketwork out of Ho Chi Minh City to major US, UK, EU, and Australia ports.</p>
+
+<h2>What LCL and FCL actually mean in ocean freight</h2>
+
+<p><b>FCL — Full Container Load.</b> The buyer books an entire container (typically 20', 40', or 40HQ) and pays a flat freight rate for the container regardless of how full it actually is. Loaded at the Vietnamese consolidation warehouse, sealed, shipped, and delivered directly to the buyer's destination handoff point. One shipper, one container, one seal, one B/L.</p>
+
+<p><b>LCL — Less-than-Container Load.</b> The buyer books cargo space measured in cubic metres (CBM) and pays a per-CBM rate. The cargo is delivered to a CFS (Container Freight Station) in HCMC where it is consolidated with cargo from other shippers heading to the same destination port. At the destination port, the mixed-shipper container is unpacked at another CFS, and each shipper collects their own cargo from that CFS. Multiple shippers, one shared container, shared B/L for the container plus individual House B/L per shipper.</p>
+
+<p>The two modes look similar on the freight-quote line — dollars per CBM vs dollars per container — but the operational shape is very different, and that difference matters more than the freight cost gap on most first-order decisions.</p>
+
+<h2>The three-CBM decision framework</h2>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Shipment CBM</th><th>Recommended mode</th><th>Reason</th></tr></thead>
+<tbody>
+<tr><td>Under 15 CBM</td><td>LCL clearly</td><td>FCL far too expensive per unit; container would ship ~25% full</td></tr>
+<tr><td>15 to 25 CBM</td><td>LCL usually</td><td>LCL still cheaper per unit, transit delay acceptable for most first orders</td></tr>
+<tr><td>25 to 40 CBM</td><td>Ambiguous — depends on schedule and damage tolerance</td><td>Freight cost roughly break-even; other factors decide</td></tr>
+<tr><td>40 to 55 CBM</td><td>FCL usually</td><td>FCL per-unit cost roughly matches LCL; schedule certainty and lower damage rate win</td></tr>
+<tr><td>Above 55 CBM</td><td>FCL clearly</td><td>Exceeds practical single-shipment LCL threshold; consolidation delays compound</td></tr>
+</tbody></table></div>
+
+<p>The 25 to 40 CBM ambiguous zone is where most first-time buyer decisions actually land. A mixed 5-SKU first container at 300 pieces per SKU typically produces 35 to 50 CBM depending on SKU mix (nested storage vs tall pieces). This is exactly the zone where the freight-quote comparison is close and the other factors (transit time, damage risk, schedule certainty) drive the right decision.</p>
+
+<h2>Worked comparison — 15 CBM shipment HCMC to Los Angeles</h2>
+
+<p>Scenario: DTC brand launching 3 SKUs at 300 pieces each. Nested water hyacinth storage baskets. Total volume 14 CBM, gross weight 890 kg. Destination Amazon FBA warehouse in Ontario, CA.</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Cost element</th><th>LCL (15 CBM)</th><th>FCL (40HQ, ~25% utilised)</th></tr></thead>
+<tbody>
+<tr><td>Ocean freight HCMC → LA</td><td>$1,500 ($100/CBM)</td><td>$3,200 flat</td></tr>
+<tr><td>Origin CFS handling</td><td>$180</td><td>Included in FCL</td></tr>
+<tr><td>Destination CFS + deconsolidation</td><td>$220</td><td>Included in FCL</td></tr>
+<tr><td>Trucking CFS → FBA warehouse</td><td>$650</td><td>$650</td></tr>
+<tr><td>Total to FBA</td><td><b>$2,550</b></td><td><b>$3,850</b></td></tr>
+<tr><td>Per retail unit (900 pieces)</td><td>$2.83</td><td>$4.28</td></tr>
+</tbody></table></div>
+
+<p>LCL saves $1,300 or roughly $1.45 per retail unit. On a $28 retail-price SKU, that is a meaningful 5 percent of retail price recovered. Recommend LCL.</p>
+
+<h2>Worked comparison — 30 CBM shipment HCMC to Felixstowe</h2>
+
+<p>Scenario: UK home retailer, 5-SKU mixed programme (2 nested storage + 1 laundry hamper + 1 tray + 1 magazine basket). 300 pieces per SKU, 1,500 total. Total volume 31 CBM, gross weight 2,150 kg. Destination DC in Midlands via Felixstowe.</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Cost element</th><th>LCL (31 CBM)</th><th>FCL (40HQ, ~45% utilised)</th></tr></thead>
+<tbody>
+<tr><td>Ocean freight HCMC → Felixstowe</td><td>$3,720 ($120/CBM)</td><td>$3,900 flat</td></tr>
+<tr><td>Origin CFS handling</td><td>$280</td><td>Included in FCL</td></tr>
+<tr><td>Destination CFS + deconsolidation</td><td>$310</td><td>Included in FCL</td></tr>
+<tr><td>Trucking CFS → Midlands DC</td><td>$820</td><td>$820</td></tr>
+<tr><td>Total to DC</td><td><b>$5,130</b></td><td><b>$4,720</b></td></tr>
+<tr><td>Per retail unit (1,500 pieces)</td><td>$3.42</td><td>$3.15</td></tr>
+<tr><td>Transit time (HCMC → DC)</td><td>50-58 days</td><td>38-44 days</td></tr>
+<tr><td>Damage expectation</td><td>~30-75 pieces (2-5%)</td><td>~5-15 pieces (under 1%)</td></tr>
+</tbody></table></div>
+
+<p>FCL is $410 cheaper AND 12 days faster AND much lower damage rate. Recommend FCL clearly — this is the case where the buyer's mental model ("we don't need a full container") is wrong. The freight quote is deceptive because it does not price schedule certainty or damage risk. At 30 CBM to UK, FCL wins on almost every dimension.</p>
+
+<h2>Worked comparison — 50 CBM shipment HCMC to Sydney</h2>
+
+<p>Scenario: Australian home retail chain, 7-SKU programme at 400-500 pieces per SKU. Total volume 52 CBM, gross weight 3,600 kg. Destination Sydney Port Botany, then chain's central DC.</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Cost element</th><th>LCL (52 CBM)</th><th>FCL (40HQ, ~75% utilised)</th></tr></thead>
+<tbody>
+<tr><td>Ocean freight HCMC → Sydney</td><td>$7,280 ($140/CBM)</td><td>$3,600 flat</td></tr>
+<tr><td>Origin CFS handling</td><td>$460</td><td>Included in FCL</td></tr>
+<tr><td>Destination CFS + deconsolidation</td><td>$530</td><td>Included in FCL</td></tr>
+<tr><td>Trucking to DC</td><td>$680</td><td>$680</td></tr>
+<tr><td>Total to DC</td><td><b>$8,950</b></td><td><b>$4,280</b></td></tr>
+<tr><td>Per retail unit (3,000 pieces)</td><td>$2.98</td><td>$1.43</td></tr>
+</tbody></table></div>
+
+<p>FCL costs half as much per unit. LCL at 50 CBM is economically indefensible for this shipment; the buyer's freight forwarder should be advising FCL without discussion. Recommend FCL clearly.</p>
+
+<h2>The three factors freight quotes do not show</h2>
+
+<p>Every LCL vs FCL comparison should account for three costs that do not appear on the freight-quote spreadsheet:</p>
+
+<h3>1. Transit time — schedule certainty</h3>
+
+<p>LCL adds 7 to 14 days to transit versus FCL on the same route. The extra time is consolidation at HCMC CFS (waiting for the container to fill with cargo from other shippers) and deconsolidation at destination CFS. On a first order aimed at a specific retail launch date, LCL introduces schedule risk that FCL does not. Buyers who plan for the LCL average transit can hit launch dates; buyers who plan for FCL transit and then downgrade to LCL to save money often miss the launch by 1 to 2 weeks.</p>
+
+<h3>2. Damage rate — the retail-loss cost</h3>
+
+<p>LCL cargo is handled 4 to 6 times more than FCL cargo during the shipment lifecycle. Vietnamese CFS unloads from truck, sorts, palletises, loads into container. Destination CFS reverses the process. Each handling step is an opportunity for a carton to be dropped, crushed by heavier neighbouring cargo, or scuffed on the CFS floor.</p>
+
+<p>Typical damage rates on handwoven basket shipments:</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Mode</th><th>Typical damage rate</th><th>Cost on 1,500-piece shipment</th></tr></thead>
+<tbody>
+<tr><td>LCL</td><td>2 to 5%</td><td>30 to 75 damaged pieces</td></tr>
+<tr><td>FCL floor-loaded, direct delivery</td><td>Under 1%</td><td>Under 15 damaged pieces</td></tr>
+<tr><td>FCL palletised</td><td>Under 0.5%</td><td>Under 8 damaged pieces</td></tr>
+</tbody></table></div>
+
+<p>At $12 to $20 landed cost per piece, LCL's higher damage rate costs $200 to $1,000 in write-off value on a 1,500-piece shipment — sometimes more than the entire freight-cost saving.</p>
+
+<h3>3. Dedicated container vs shared</h3>
+
+<p>FCL means one shipper's cargo in one container from origin to destination. The container is sealed at HCMC and opens only at the buyer's DC. LCL means the container is opened, sorted, and repacked at both CFS points. For sensitive cargo (documents, high-value private-label pieces, custom hangtag artwork) FCL provides a security and traceability advantage that LCL cannot match. For standard retail basketware, this factor matters less but is not zero — buyers with prior LCL loss experience will trade freight cost for cargo isolation.</p>
+
+<h2>When LCL is actually the right call at higher volumes</h2>
+
+<p>Two exception cases where LCL wins even at 30+ CBM:</p>
+
+<ul>
+<li><b>Multi-destination consolidation.</b> Buyer needs 15 CBM to Los Angeles + 12 CBM to New York + 10 CBM to Miami. Splitting into 3 LCL shipments direct to each destination is often cheaper than shipping FCL to one port and paying US domestic trucking to redistribute.</li>
+<li><b>Sample or bridge orders.</b> Buyer already has FCL programme running and needs a small bridge shipment (a hot SKU running low, a new SKU for a specific retail test) between planned FCL containers. LCL bridges avoid holding up an entire FCL to fit an urgent 8 CBM top-up.</li>
+</ul>
+
+<div class="callout">
+<h3>The recommended first-order default at HMD</h3>
+<p>For a typical first-time buyer with 5 to 7 SKUs at 300 pieces per SKU MOQ (roughly 30 to 45 CBM), HMD recommends a mixed 40HQ FCL. The freight cost is within 10 to 15 percent of LCL, the transit is 10+ days faster, the damage rate is dramatically lower, and the buyer gets a dedicated container with a clean sample of retail assortment for shelf-testing. On the second order, HMD often recommends the same approach with 6 to 8 SKUs — building programme depth on the winners while adding one or two new SKUs to test.</p>
+</div>
+
+<h2>Practical decision checklist</h2>
+
+<ol style="padding-left:0;list-style:none;margin:0 0 26px">
+<li style="padding:14px 0 14px 28px;border-bottom:1px solid var(--line);position:relative"><span style="position:absolute;left:0;top:14px;color:var(--gold);font-weight:700">1.</span><b>Calculate your total CBM</b> from the HMD-provided per-SKU CBM data.</li>
+<li style="padding:14px 0 14px 28px;border-bottom:1px solid var(--line);position:relative"><span style="position:absolute;left:0;top:14px;color:var(--gold);font-weight:700">2.</span><b>Get quotes for both modes from your forwarder.</b> Any capable forwarder quotes both without pushback.</li>
+<li style="padding:14px 0 14px 28px;border-bottom:1px solid var(--line);position:relative"><span style="position:absolute;left:0;top:14px;color:var(--gold);font-weight:700">3.</span><b>Compare per-unit landed cost.</b> Not per-CBM freight cost.</li>
+<li style="padding:14px 0 14px 28px;border-bottom:1px solid var(--line);position:relative"><span style="position:absolute;left:0;top:14px;color:var(--gold);font-weight:700">4.</span><b>Check transit time against your retail launch date.</b> Add a 7-day buffer to LCL estimate.</li>
+<li style="padding:14px 0 14px 28px;border-bottom:1px solid var(--line);position:relative"><span style="position:absolute;left:0;top:14px;color:var(--gold);font-weight:700">5.</span><b>Estimate damage cost.</b> Multiply piece count by 2.5% × landed cost per unit for LCL, 0.5% × landed cost per unit for FCL.</li>
+<li style="padding:14px 0 14px 28px;border-bottom:1px solid var(--line);position:relative"><span style="position:absolute;left:0;top:14px;color:var(--gold);font-weight:700">6.</span><b>Pick the mode where total landed cost + damage cost + schedule risk is lower.</b></li>
+</ol>
+
+<blockquote>Freight cost is one line on the quote. Landed cost is what matters.</blockquote>
+
+<h2>Frequently asked questions</h2>
+
+<h3>What is the CBM threshold where FCL becomes cheaper than LCL?</h3>
+<p>Below 25 CBM ship LCL, above 45 CBM ship FCL, between 25 and 45 CBM is ambiguous. LCL rates $80-190/CBM, FCL flat $2,800-4,600 depending on route.</p>
+
+<h3>How long does LCL transit take versus FCL?</h3>
+<p>7-14 days longer. Extra time for consolidation at origin CFS and deconsolidation at destination CFS.</p>
+
+<h3>Is damage risk higher on LCL shipments?</h3>
+<p>Yes. 2-5% damage rate on LCL vs under 1% on FCL. LCL cargo handled 4-6 times more during shipment lifecycle.</p>
+
+<h3>Can I mix LCL and FCL across a single PO?</h3>
+<p>Rarely commercially sensible. One exception: air freight / LCL bridge quantity to hit urgent retail date while main container ships FCL.</p>
+
+<h3>What does LCL cost per unit for a typical basket order?</h3>
+<p>15 CBM HCMC → US west coast: ~$1.75-2.80 per retail unit LCL, ~$4.30-5.60 per unit FCL. LCL wins clearly at low volumes.</p>
+
+<h3>Which mode does HMD recommend for a first Vietnamese basket order?</h3>
+<p>Under 20 CBM: LCL. 20-40 CBM: FCL usually. Above 40 CBM: FCL every time. Most first-time buyers land in the FCL sweet spot at 30-45 CBM.</p>
+
+<div class="byline"><div class="avatar">JN</div><div><div class="who">Joy Nguyễn Vietnam</div><div class="role">Director, HMD Strategy &amp; Export</div></div><div class="actions"><a href="mailto:joy@hmdhycraft.com?subject=Enquiry%20from%20hmdhycraft.com%20—%20LCL%20FCL%20decision">Email Joy</a><a class="outline" href="/blog">More journal</a></div></div>
+<div class="tags">Tagged: <a href="#">LCL</a> · <a href="#">FCL</a> · <a href="#">Freight</a> · <a href="#">First order</a></div>
+</div></article>
+
+<section class="hmd-relx" aria-label="Related pages"><div class="hmd-relx-w">
+<h3 class="hmd-relx-h">Buyers who read this also viewed</h3>
+<p class="hmd-relx-sub">More logistics and first-order references</p>
+<div class="hmd-relx-strip">
+<a href="/blog/container-maths-40hq-baskets"><div class="hmd-relx-thumb"><img src="/assets/web/export6.jpg" alt="40HQ container loading" loading="lazy"></div><div class="hmd-relx-body"><div class="hmd-relx-k">Buying guide</div><div class="hmd-relx-t">Container maths for a 40HQ</div><div class="hmd-relx-s">Worked load plan, nesting ratios, palletisation trade-off</div></div></a>
+<a href="/blog/moq-tips-water-hyacinth-baskets"><div class="hmd-relx-thumb"><img src="/assets/web/water-hyacinth-basket-collection-2026.jpg" alt="MOQ tips" loading="lazy"></div><div class="hmd-relx-body"><div class="hmd-relx-k">Buying guide</div><div class="hmd-relx-t">MOQ tips for water hyacinth baskets</div><div class="hmd-relx-s">Why 300 per SKU + four negotiation moves</div></div></a>
+<a href="/blog/how-to-import-handicraft-from-vietnam"><div class="hmd-relx-thumb"><img src="/assets/web/export6.jpg" alt="Import walkthrough" loading="lazy"></div><div class="hmd-relx-body"><div class="hmd-relx-k">Import guide</div><div class="hmd-relx-t">How to import handicraft from Vietnam</div><div class="hmd-relx-s">First-time buyer walkthrough — 8 stages</div></div></a>
+<a href="/blog/quality-checklist-water-hyacinth-baskets"><div class="hmd-relx-thumb"><img src="/assets/web/seagrass-basket-collection-2026.jpg" alt="QC checklist" loading="lazy"></div><div class="hmd-relx-body"><div class="hmd-relx-k">Buying guide</div><div class="hmd-relx-t">Quality checklist — 14-point QC</div><div class="hmd-relx-s">Pre-shipment inspection + inbound audit sampling plan</div></div></a>
+<a href="/water-hyacinth-baskets"><div class="hmd-relx-thumb"><img src="/assets/web/water-hyacinth-basket-collection-2026.jpg" alt="Pillar guide" loading="lazy"></div><div class="hmd-relx-body"><div class="hmd-relx-k">Pillar guide</div><div class="hmd-relx-t">Water Hyacinth Baskets Buyer's Guide</div><div class="hmd-relx-s">Types, MOQ, care, comparison, FAQ</div></div></a>
+</div></div></section>
+
+<section class="next-cta"><h3>Need help sizing your first shipment for LCL vs FCL?</h3><p>Send the SKU shortlist and target volumes. Joy returns per-SKU CBM, total shipment volume, both LCL and FCL freight estimates, and a mode recommendation with reasoning.</p><a href="mailto:joy@hmdhycraft.com?subject=Enquiry%20from%20hmdhycraft.com%20—%20LCL%20vs%20FCL%20sizing">Ask Joy to size</a><br><a class="back" href="/blog">← Back to Journal</a></section>
+
+<footer class="site">© 2026 HMD Strategy &amp; Export Co., Ltd · <a href="/">hmdhycraft.com</a></footer>
+<button id="totop" class="totop" aria-label="Back to top">↑</button>
+<script>(function(){var b=document.getElementById('totop');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>400)b.classList.add('show');else b.classList.remove('show');},{passive:true});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});})();</script>
+</body></html>
